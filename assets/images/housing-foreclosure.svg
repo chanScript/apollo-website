@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="600" height="400">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#142838;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1E3D54;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4DB8B2;stop-opacity:0.2" />
+      <stop offset="100%" style="stop-color:#4DB8B2;stop-opacity:0.05" />
+    </linearGradient>
+  </defs>
+  <rect width="600" height="400" fill="url(#bg)" rx="16"/>
+  <circle cx="500" cy="80" r="160" fill="url(#accent)"/>
+  <circle cx="80" cy="340" r="100" fill="url(#accent)"/>
+  <!-- House icon -->
+  <g transform="translate(160, 70)">
+    <!-- Roof -->
+    <path d="M140 20 L260 110 L20 110 Z" fill="none" stroke="#4DB8B2" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- Body -->
+    <rect x="40" y="110" width="200" height="160" rx="4" fill="none" stroke="#4DB8B2" stroke-width="8"/>
+    <!-- Door -->
+    <rect x="110" y="190" width="60" height="80" rx="6" fill="none" stroke="#4DB8B2" stroke-width="6" opacity="0.7"/>
+    <!-- Windows -->
+    <rect x="55" y="140" width="48" height="40" rx="4" fill="none" stroke="#4DB8B2" stroke-width="5" opacity="0.5"/>
+    <rect x="177" y="140" width="48" height="40" rx="4" fill="none" stroke="#4DB8B2" stroke-width="5" opacity="0.5"/>
+    <!-- Chimney -->
+    <rect x="190" y="30" width="24" height="52" rx="3" fill="none" stroke="#4DB8B2" stroke-width="5" opacity="0.4"/>
+  </g>
+  <text x="300" y="355" text-anchor="middle" font-family="Inter, sans-serif" font-size="22" font-weight="700" fill="#4DB8B2" letter-spacing="1">Housing Foreclosure</text>
+  <text x="300" y="383" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" fill="#8BAFC4" letter-spacing="0.5">Real estate debt recovery management</text>
+</svg>

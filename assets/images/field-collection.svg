@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="600" height="400">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#142838;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1E3D54;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4DB8B2;stop-opacity:0.2" />
+      <stop offset="100%" style="stop-color:#4DB8B2;stop-opacity:0.05" />
+    </linearGradient>
+  </defs>
+  <rect width="600" height="400" fill="url(#bg)" rx="16"/>
+  <circle cx="500" cy="80" r="160" fill="url(#accent)"/>
+  <circle cx="80" cy="340" r="100" fill="url(#accent)"/>
+  <!-- People / field agents icon -->
+  <g transform="translate(195, 90)">
+    <!-- Person 1 -->
+    <circle cx="70" cy="60" r="28" fill="none" stroke="#4DB8B2" stroke-width="7"/>
+    <path d="M20 180 C20 145 45 125 70 125 C95 125 120 145 120 180" fill="none" stroke="#4DB8B2" stroke-width="7" stroke-linecap="round"/>
+    <!-- Person 2 -->
+    <circle cx="140" cy="55" r="22" fill="none" stroke="#4DB8B2" stroke-width="5" opacity="0.6"/>
+    <path d="M100 175 C100 148 118 132 140 132 C162 132 180 148 180 175" fill="none" stroke="#4DB8B2" stroke-width="5" stroke-linecap="round" opacity="0.6"/>
+  </g>
+  <text x="300" y="340" text-anchor="middle" font-family="Inter, sans-serif" font-size="22" font-weight="700" fill="#4DB8B2" letter-spacing="1">Field Collection</text>
+  <text x="300" y="368" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" fill="#8BAFC4" letter-spacing="0.5">On-site debt negotiation &amp; recovery</text>
+</svg>
