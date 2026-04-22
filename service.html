@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Service Details — Apollo Business Solutions and Management Inc.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+          colors: {
+            dark: {
+              DEFAULT: '#142838',
+              light: '#1A3347',
+              lighter: '#1E3D54',
+            },
+            teal: {
+              DEFAULT: '#4DB8B2',
+              light: '#7DD4CE',
+              lighter: '#A8E6E2',
+            },
+            muted: '#8BAFC4',
+            lgray: '#f0f4f8',
+            lborder: '#e2e8f0',
+          },
+        },
+      },
+    };
+  </script>
+  <style>
+    .text-gradient {
+      background: linear-gradient(135deg, #4DB8B2, #1A3347);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .service-hero-bg {
+      background: linear-gradient(135deg, #142838 0%, #1A3347 60%, #1E3D54 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .service-hero-bg::before {
+      content: '';
+      position: absolute;
+      top: -40%;
+      right: -15%;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(77,184,178,0.14) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .service-hero-bg::after {
+      content: '';
+      position: absolute;
+      bottom: -30%;
+      left: -10%;
+      width: 400px;
+      height: 400px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(77,184,178,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .highlight-check::before {
+      content: '';
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: #4DB8B2;
+      margin-right: 12px;
+      flex-shrink: 0;
+    }
+  </style>
+</head>
+<body class="font-sans antialiased text-dark bg-white">
+
+  <!-- Navbar injected here -->
+  <div id="navbar-placeholder"></div>
+
+  <!-- ===================== PAGE CONTENT ===================== -->
+  <main id="service-main">
+
+    <!-- Hero banner (title populated by JS) -->
+    <section class="service-hero-bg pt-32 pb-16">
+      <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Breadcrumb -->
+        <nav class="flex items-center gap-2 mb-8 text-sm" aria-label="Breadcrumb">
+          <a href="./index.html" class="text-white/50 hover:text-teal transition-colors">Home</a>
+          <svg class="w-4 h-4 text-white/30" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+          <a href="./index.html#services" class="text-white/50 hover:text-teal transition-colors">Services</a>
+          <svg class="w-4 h-4 text-white/30" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+          <span id="breadcrumb-service" class="text-teal font-medium">Service</span>
+        </nav>
+
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 mb-6">
+          <span class="w-2 h-2 rounded-full bg-teal animate-pulse"></span>
+          <span id="hero-tagline" class="text-teal-lighter text-sm font-medium">Apollo Business Solutions</span>
+        </div>
+
+        <h1 id="hero-title" class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight">
+          Loading...
+        </h1>
+      </div>
+    </section>
+
+    <!-- ===================== SERVICE DETAIL CARD ===================== -->
+    <section class="bg-white py-16 lg:py-24">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <!-- Error / not found state (hidden by default) -->
+        <div id="service-not-found" class="hidden text-center py-24">
+          <div class="w-20 h-20 rounded-2xl bg-teal/10 flex items-center justify-center mx-auto mb-6">
+            <svg class="w-10 h-10 text-teal" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z"/>
+            </svg>
+          </div>
+          <h2 class="text-2xl font-bold text-dark mb-3">Service Not Found</h2>
+          <p class="text-dark/60 mb-8">The service you're looking for doesn't exist or may have been moved.</p>
+          <a href="./index.html#services" class="inline-flex items-center px-6 py-3 bg-teal text-white font-semibold rounded-lg hover:bg-dark transition-colors">
+            View All Services
+            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          </a>
+        </div>
+
+        <!-- Service detail card (shown when service found) -->
+        <div id="service-card" class="hidden">
+          <!-- Card wrapper -->
+          <div class="bg-white rounded-3xl border border-lborder shadow-xl shadow-dark/5 overflow-hidden">
+            <div class="flex flex-col lg:flex-row">
+
+              <!-- Image Side -->
+              <div class="lg:w-2/5 bg-lgray flex items-center justify-center p-8 lg:p-12 min-h-72">
+                <img
+                  id="service-image"
+                  src=""
+                  alt=""
+                  class="w-full max-w-sm rounded-2xl shadow-lg object-contain"
+                />
+              </div>
+
+              <!-- Text Side -->
+              <div class="lg:w-3/5 p-8 lg:p-12 flex flex-col justify-center">
+                <span class="text-teal text-xs font-semibold uppercase tracking-widest mb-3">Apollo Services</span>
+                <h2 id="card-title" class="text-3xl sm:text-4xl font-extrabold text-dark mb-4 leading-tight"></h2>
+                <p id="card-short-desc" class="text-dark/60 text-lg leading-relaxed mb-6"></p>
+
+                <!-- Full content paragraphs -->
+                <div id="card-content" class="prose-sm text-dark/70 leading-relaxed space-y-4 mb-8"></div>
+
+                <!-- Key Highlights -->
+                <div id="card-highlights-section" class="mb-8">
+                  <h3 class="text-sm font-semibold text-dark uppercase tracking-wider mb-4">Key Features</h3>
+                  <ul id="card-highlights" class="grid sm:grid-cols-2 gap-3"></ul>
+                </div>
+
+                <!-- CTA -->
+                <div class="flex flex-wrap gap-4">
+                  <a href="./index.html#cta" class="inline-flex items-center px-7 py-3 bg-teal text-white font-semibold rounded-lg hover:bg-dark transition-colors">
+                    Get Started
+                    <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                  </a>
+                  <a href="./index.html#services" class="inline-flex items-center px-7 py-3 border-2 border-lborder text-dark font-semibold rounded-lg hover:border-teal hover:text-teal transition-colors">
+                    All Services
+                  </a>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===================== OTHER SERVICES STRIP ===================== -->
+    <section id="other-services" class="bg-lgray py-16 hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-10">
+          <span class="text-teal text-xs font-semibold uppercase tracking-widest">Explore More</span>
+          <h2 class="text-2xl sm:text-3xl font-bold mt-2 text-dark">Other Services</h2>
+        </div>
+        <div id="other-services-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer injected here -->
+  <div id="footer-placeholder"></div>
+
+  <!-- Scripts -->
+  <script src="./js/services-data.js"></script>
+  <script src="./js/components.js"></script>
+  <script>
+    (function () {
+      const params = new URLSearchParams(window.location.search);
+      const slug = params.get('service');
+      const service = slug && servicesData[slug];
+
+      if (!service) {
+        document.getElementById('service-not-found').classList.remove('hidden');
+        document.getElementById('hero-title').textContent = 'Service Not Found';
+        document.getElementById('hero-tagline').textContent = 'Apollo Business Solutions';
+        document.title = 'Service Not Found — Apollo Business Solutions';
+        return;
+      }
+
+      // Update document title
+      document.title = service.title + ' — Apollo Business Solutions and Management Inc.';
+
+      // Hero banner
+      document.getElementById('breadcrumb-service').textContent = service.title;
+      document.getElementById('hero-tagline').textContent = service.tagline;
+      document.getElementById('hero-title').textContent = service.title;
+
+      // Show card
+      const card = document.getElementById('service-card');
+      card.classList.remove('hidden');
+
+      // Image
+      const img = document.getElementById('service-image');
+      img.src = service.image;
+      img.alt = service.imageAlt;
+
+      // Text
+      document.getElementById('card-title').textContent = service.title;
+      document.getElementById('card-short-desc').textContent = service.shortDescription;
+      document.getElementById('card-content').innerHTML = service.content;
+
+      // Highlights
+      const ul = document.getElementById('card-highlights');
+      service.highlights.forEach(function (item) {
+        const li = document.createElement('li');
+        li.className = 'flex items-center gap-3 text-sm text-dark/70';
+        li.innerHTML =
+          '<span class="w-2 h-2 rounded-full bg-teal shrink-0"></span>' +
+          '<span>' + item + '</span>';
+        ul.appendChild(li);
+      });
+
+      // Other services strip
+      const otherSection = document.getElementById('other-services');
+      const otherGrid = document.getElementById('other-services-grid');
+      const otherSlugs = Object.keys(servicesData).filter(function (s) { return s !== slug; });
+
+      if (otherSlugs.length > 0) {
+        otherSection.classList.remove('hidden');
+        otherSlugs.forEach(function (otherSlug) {
+          const s = servicesData[otherSlug];
+          const div = document.createElement('div');
+          div.className = 'bg-white rounded-2xl border border-lborder p-6 hover:border-teal/40 hover:shadow-md transition-all';
+          div.innerHTML =
+            '<h3 class="text-lg font-bold text-dark mb-2">' + s.title + '</h3>' +
+            '<p class="text-dark/60 text-sm leading-relaxed mb-4">' + s.shortDescription + '</p>' +
+            '<a href="./service.html?service=' + otherSlug + '" class="inline-flex items-center text-teal text-sm font-medium hover:text-dark transition-colors">' +
+              'Learn more' +
+              '<svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>' +
+            '</a>';
+          otherGrid.appendChild(div);
+        });
+      }
+    })();
+  </script>
+
+</body>
+</html>

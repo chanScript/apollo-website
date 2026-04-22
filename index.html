@@ -100,69 +100,28 @@
     .group:hover .service-icon-box svg {
       color: white;
     }
+    
+  canvas {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: 0;
+  }
   </style>
 </head>
 <body class="font-sans antialiased text-dark bg-white">
 
   <!-- ===================== NAVBAR ===================== -->
-  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-lborder transition-all duration-300">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between h-20">
-        <!-- Logo -->
-        <a href="#hero" class="flex items-center gap-3">
-          <img src="logo.jpg" alt="Apollo Logo" class="h-14 w-auto rounded-lg shadow-sm" />
-          <div class="flex flex-col leading-tight">
-            <span class="text-base font-extrabold tracking-tight text-dark">APOLLO</span>
-            <span class="text-[11px] font-medium text-dark/50 tracking-wide uppercase">Business Solutions &amp; Management Inc.</span>
-          </div>
-        </a>
-
-        <!-- Desktop Navigation -->
-        <div class="hidden lg:flex items-center gap-8">
-          <a href="#hero" class="text-sm font-medium text-dark/70 hover:text-teal transition-colors">Home</a>
-          <a href="#about" class="text-sm font-medium text-dark/70 hover:text-teal transition-colors">About</a>
-          <a href="#services" class="text-sm font-medium text-dark/70 hover:text-teal transition-colors">Services</a>
-          <a href="#features" class="text-sm font-medium text-dark/70 hover:text-teal transition-colors">Why Choose Us</a>
-          <a href="#faq" class="text-sm font-medium text-dark/70 hover:text-teal transition-colors">FAQ</a>
-          <a href="#cta" class="text-sm font-medium text-dark/70 hover:text-teal transition-colors">Contact</a>
-          <a href="#cta" class="ml-4 inline-flex items-center px-6 py-2.5 bg-teal text-white text-sm font-semibold rounded-lg hover:bg-dark transition-colors">
-            Get Started
-          </a>
-        </div>
-
-        <!-- Mobile Hamburger -->
-        <button id="menu-toggle" class="lg:hidden p-2 text-dark/70 hover:text-teal transition-colors" aria-label="Toggle menu">
-          <svg id="menu-open-icon" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
-          </svg>
-          <svg id="menu-close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
-          </svg>
-        </button>
-      </div>
-    </div>
-
-    <!-- Mobile Menu -->
-    <div id="mobile-menu" class="lg:hidden hidden bg-white border-t border-lborder">
-      <div class="px-4 py-6 space-y-4">
-        <a href="#hero" class="block text-sm font-medium text-dark/70 hover:text-teal transition-colors" onclick="closeMobileMenu()">Home</a>
-        <a href="#about" class="block text-sm font-medium text-dark/70 hover:text-teal transition-colors" onclick="closeMobileMenu()">About</a>
-        <a href="#services" class="block text-sm font-medium text-dark/70 hover:text-teal transition-colors" onclick="closeMobileMenu()">Services</a>
-        <a href="#features" class="block text-sm font-medium text-dark/70 hover:text-teal transition-colors" onclick="closeMobileMenu()">Why Choose Us</a>
-        <a href="#faq" class="block text-sm font-medium text-dark/70 hover:text-teal transition-colors" onclick="closeMobileMenu()">FAQ</a>
-        <a href="#cta" class="block text-sm font-medium text-dark/70 hover:text-teal transition-colors" onclick="closeMobileMenu()">Contact</a>
-        <a href="#cta" class="inline-flex items-center px-6 py-2.5 bg-teal text-white text-sm font-semibold rounded-lg hover:bg-dark transition-colors" onclick="closeMobileMenu()">
-          Get Started
-        </a>
-      </div>
-    </div>
-  </nav>
+  <div id="navbar-placeholder"></div>
 
   <!-- ===================== HERO SECTION ===================== -->
   <section id="hero" class="relative min-h-screen flex items-center pt-20">
     <div class="absolute inset-0">
       <img src="laptop-main-background.jpg" alt="" class="w-full h-full object-cover" />
-      <div class="hero-overlay absolute inset-0"></div>
+
+    <div class="hero-overlay absolute inset-0"></div>
+
+
     </div>
 
     <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32">
@@ -174,10 +133,10 @@
 
         <h1 class="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold leading-tight mb-6 text-white">
           Powering the Future of
-          <span class="text-teal">Financial Services</span>
+          <span class="text-teal ">Financial Services</span>
         </h1>
 
-        <p class="text-lg sm:text-xl text-white/70 leading-relaxed mb-10 max-w-2xl mx-auto">
+        <p class="text-lg sm:text-xl text-white/80 leading-relaxed mb-10 max-w-2xl mx-auto">
           Apollo Business Solutions delivers cutting-edge collection systems, financial service operations, and loan marketing solutions — built for efficiency, security, and scale.
         </p>
 
@@ -195,7 +154,7 @@
 
         <!-- Service Coverage Locations -->
         <div class="mt-10">
-          <p class="text-white/40 text-sm font-medium uppercase tracking-wider mb-4">Service Coverage</p>
+          <p class="text-white/40 text-sm font-medium uppercase tracking-wider mb-4">---</p>
           <div class="flex flex-wrap gap-3 justify-center">
             <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 text-white/100 text-sm">
               <svg class="w-4 h-4 text-teal" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/></svg>
@@ -299,6 +258,40 @@
     </div>
   </section>
 
+  <!-- ===================== STATS / GRADIENT BAND ===================== -->
+  <section class="relative overflow-hidden py-16">
+    <div class="absolute inset-0" style="background: linear-gradient(135deg, #4db8b2 0%, #2da8a2 40%, #142838 100%);"></div>
+    <!-- Decorative circles -->
+    <div class="absolute top-0 right-0 w-80 h-80 rounded-full opacity-10" style="background: radial-gradient(circle, #ffffff 0%, transparent 70%); transform: translate(30%, -40%);"></div>
+    <div class="absolute bottom-0 left-0 w-64 h-64 rounded-full opacity-10" style="background: radial-gradient(circle, #ffffff 0%, transparent 70%); transform: translate(-30%, 40%);"></div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+
+        <div class="fade-in">
+          <div class="text-4xl sm:text-5xl font-extrabold text-white mb-2">10+</div>
+          <div class="text-sm font-medium text-white/70 uppercase tracking-wider">Years of Excellence</div>
+        </div>
+
+        <div class="fade-in">
+          <div class="text-4xl sm:text-5xl font-extrabold text-white mb-2">6</div>
+          <div class="text-sm font-medium text-white/70 uppercase tracking-wider">Core Services</div>
+        </div>
+
+        <div class="fade-in">
+          <div class="text-4xl sm:text-5xl font-extrabold text-white mb-2">5+</div>
+          <div class="text-sm font-medium text-white/70 uppercase tracking-wider">Global Regions</div>
+        </div>
+
+        <div class="fade-in">
+          <div class="text-4xl sm:text-5xl font-extrabold text-white mb-2">40%</div>
+          <div class="text-sm font-medium text-white/70 uppercase tracking-wider">Avg. Cost Reduction</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
   <!-- ===================== SERVICES SECTION ===================== -->
   <section id="services" class="bg-lgray py-20 lg:py-28">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -326,11 +319,10 @@
                 </svg>
               </div>
               <div>
-                <h3 class="text-xl font-bold text-dark mb-2">Call Collection</h3>
-                <p class="text-dark/60 leading-relaxed mb-3">
-                  Expert communication techniques are used to recover outstanding debts through phone calls, maintaining professionalism and compliance with regulations.
-                </p>
-                <a href="#cta" class="inline-flex items-center text-teal text-sm font-medium hover:text-dark transition-colors">
+
+                <h3 class="text-lg font-bold text-dark mb-2">Call Collection</h3>
+                <p class="text-dark/60 text-sm leading-relaxed mb-4">Expert communication techniques are used to recover outstanding debts through phone calls, maintaining professionalism and compliance with regulations.</p>
+                <a href="service.html?service=call-collection" class="inline-flex items-center text-teal text-sm font-medium hover:text-dark transition-colors">
                   Learn more
                   <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
                 </a>
@@ -346,12 +338,11 @@
                   <path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z"/>
                 </svg>
               </div>
+              <h3 class="text-lg font-bold text-dark mb-2">Field Collection</h3>
+              <p class="text-dark/60 text-sm leading-relaxed mb-4">Experienced agents personally visit debtors to negotiate and collect overdue payments, enhancing the chances of successful recovery.</p>
               <div>
-                <h3 class="text-xl font-bold text-dark mb-2">Field Collection</h3>
-                <p class="text-dark/60 leading-relaxed mb-3">
-                  Experienced agents personally visit debtors to negotiate and collect overdue payments, enhancing the chances of successful recovery.
-                </p>
-                <a href="#cta" class="inline-flex items-center text-teal text-sm font-medium hover:text-dark transition-colors">
+                
+                <a href="service.html?service=field-collection" class="inline-flex items-center text-teal text-sm font-medium hover:text-dark transition-colors">
                   Learn more
                   <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
                 </a>
@@ -367,12 +358,10 @@
                   <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"/>
                 </svg>
               </div>
+              <h3 class="text-lg font-bold text-dark mb-2"> Credit Investigation </h3>
+              <p class="text-dark/60 text-sm leading-relaxed mb-4">In-depth credit investigations are conducted to assess a debtor\'s financial standing and history, enabling informed decisions about debt recovery strategies.</p>
               <div>
-                <h3 class="text-xl font-bold text-dark mb-2">Credit Investigation</h3>
-                <p class="text-dark/60 leading-relaxed mb-3">
-                  In-depth credit investigations are conducted to assess a debtor's financial standing and history, enabling informed decisions about debt recovery strategies.
-                </p>
-                <a href="#cta" class="inline-flex items-center text-teal text-sm font-medium hover:text-dark transition-colors">
+                <a href="service.html?service=credit-investigation" class="inline-flex items-center text-teal text-sm font-medium hover:text-dark transition-colors">
                   Learn more
                   <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
                 </a>
@@ -388,12 +377,10 @@
                   <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v17.25m0 0c-1.472 0-2.882.265-4.185.75M12 20.25c1.472 0 2.882.265 4.185.75M18.75 4.97A48.416 48.416 0 0012 4.5c-2.291 0-4.545.16-6.75.47m13.5 0c1.01.143 2.01.317 3 .52m-3-.52l2.62 10.726c.122.499-.106 1.028-.589 1.202a5.988 5.988 0 01-2.031.352 5.988 5.988 0 01-2.031-.352c-.483-.174-.711-.703-.59-1.202L18.75 4.971zm-16.5.52c.99-.203 1.99-.377 3-.52m0 0l2.62 10.726c.122.499-.106 1.028-.589 1.202a5.989 5.989 0 01-2.031.352 5.989 5.989 0 01-2.031-.352c-.483-.174-.711-.703-.59-1.202L5.25 4.971z"/>
                 </svg>
               </div>
+              <h3 class="text-lg font-bold text-dark mb-2">Legal Collections</h3>
+              <p class="text-dark/60 text-sm leading-relaxed mb-4">When necessary, legal action is initiated to recover debts, leveraging legal expertise to maximize collections while adhering to all legal requirements.</p>
               <div>
-                <h3 class="text-xl font-bold text-dark mb-2">Legal Collections</h3>
-                <p class="text-dark/60 leading-relaxed mb-3">
-                  When necessary, legal action is initiated to recover debts, leveraging legal expertise to maximize collections while adhering to all legal requirements.
-                </p>
-                <a href="#cta" class="inline-flex items-center text-teal text-sm font-medium hover:text-dark transition-colors">
+                <a href="service.html?service=legal-collections" class="inline-flex items-center text-teal text-sm font-medium hover:text-dark transition-colors">
                   Learn more
                   <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
                 </a>
@@ -409,12 +396,10 @@
                   <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 00-3.213-9.193 2.056 2.056 0 00-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 00-10.026 0 1.106 1.106 0 00-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12"/>
                 </svg>
               </div>
+              <h3 class="text-lg font-bold text-dark mb-2">Vehicle Repossession </h3>
+              <p class="text-dark/60 text-sm leading-relaxed mb-4">Efficient and lawful vehicle repossession services are offered to recover outstanding auto loans or leases on behalf of clients.</p>
               <div>
-                <h3 class="text-xl font-bold text-dark mb-2">Vehicle Repossession</h3>
-                <p class="text-dark/60 leading-relaxed mb-3">
-                  Efficient and lawful vehicle repossession services are offered to recover outstanding auto loans or leases on behalf of clients.
-                </p>
-                <a href="#cta" class="inline-flex items-center text-teal text-sm font-medium hover:text-dark transition-colors">
+                <a href="service.html?service=vehicle-repossession" class="inline-flex items-center text-teal text-sm font-medium hover:text-dark transition-colors">
                   Learn more
                   <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
                 </a>
@@ -430,12 +415,10 @@
                   <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 21v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21m0 0h4.5V3.545M12.75 21h7.5V10.75M2.25 21h1.5m18 0h-18M2.25 9l4.5-1.636M18.75 3l-1.5.545m0 6.205l3 1m1.5.5l-1.5-.5M6.75 7.364V3h-3v18m3-13.636l10.5-3.819"/>
                 </svg>
               </div>
+              <h3 class="text-lg font-bold text-dark mb-2">Housing Foreclosure</h3>
+              <p class="text-dark/60 text-sm leading-relaxed mb-4">A specialised team manages the complex process of housing foreclosure, ensuring the legal and regulatory aspects are handled appropriately to recover debts related to real estate.</p>
               <div>
-                <h3 class="text-xl font-bold text-dark mb-2">Housing Foreclosure</h3>
-                <p class="text-dark/60 leading-relaxed mb-3">
-                  A specialized team manages the complex process of housing foreclosure, ensuring the legal and regulatory aspects are handled appropriately to recover debts related to real estate.
-                </p>
-                <a href="#cta" class="inline-flex items-center text-teal text-sm font-medium hover:text-dark transition-colors">
+                <a href="service.html?service=housing-foreclosure" class="inline-flex items-center text-teal text-sm font-medium hover:text-dark transition-colors">
                   Learn more
                   <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
                 </a>
@@ -661,118 +644,12 @@
   </section>
 
   <!-- ===================== FOOTER ===================== -->
-  <footer class="bg-dark">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
-
-        <!-- Column 1: Company Info -->
-        <div class="lg:col-span-1">
-          <a href="#hero" class="flex items-center gap-3 mb-6">
-            <img src="logo.jpg" alt="Apollo Business Solutions" class="h-10 w-auto brightness-0 invert" />
-          </a>
-          <p class="text-white/50 text-sm leading-relaxed mb-6">
-            A modern financial technology partner delivering efficient, scalable, and reliable systems for collections, financial services, and loan marketing.
-          </p>
-          <div class="flex gap-4">
-            <a href="#" class="w-9 h-9 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-white/40 hover:text-teal hover:border-teal/30 transition-colors" aria-label="Facebook">
-              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-            </a>
-            <a href="#" class="w-9 h-9 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-white/40 hover:text-teal hover:border-teal/30 transition-colors" aria-label="LinkedIn">
-              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-            </a>
-            <a href="#" class="w-9 h-9 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-white/40 hover:text-teal hover:border-teal/30 transition-colors" aria-label="Twitter">
-              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
-            </a>
-          </div>
-        </div>
-
-        <!-- Column 2: Quick Links -->
-        <div>
-          <h4 class="text-white text-sm font-semibold uppercase tracking-wider mb-6">Quick Links</h4>
-          <ul class="space-y-3">
-            <li><a href="#hero" class="text-white/50 text-sm hover:text-teal transition-colors">Home</a></li>
-            <li><a href="#about" class="text-white/50 text-sm hover:text-teal transition-colors">About Us</a></li>
-            <li><a href="#services" class="text-white/50 text-sm hover:text-teal transition-colors">Services</a></li>
-            <li><a href="#features" class="text-white/50 text-sm hover:text-teal transition-colors">Why Choose Us</a></li>
-            <li><a href="#faq" class="text-white/50 text-sm hover:text-teal transition-colors">FAQ</a></li>
-            <li><a href="#cta" class="text-white/50 text-sm hover:text-teal transition-colors">Contact</a></li>
-          </ul>
-        </div>
-
-        <!-- Column 3: Services -->
-        <div>
-          <h4 class="text-white text-sm font-semibold uppercase tracking-wider mb-6">Services</h4>
-          <ul class="space-y-3">
-            <li><a href="#services" class="text-white/50 text-sm hover:text-teal transition-colors">Call Collection</a></li>
-            <li><a href="#services" class="text-white/50 text-sm hover:text-teal transition-colors">Field Collection</a></li>
-            <li><a href="#services" class="text-white/50 text-sm hover:text-teal transition-colors">Credit Investigation</a></li>
-            <li><a href="#services" class="text-white/50 text-sm hover:text-teal transition-colors">Legal Collections</a></li>
-            <li><a href="#services" class="text-white/50 text-sm hover:text-teal transition-colors">Vehicle Repossession</a></li>
-            <li><a href="#services" class="text-white/50 text-sm hover:text-teal transition-colors">Housing Foreclosure</a></li>
-          </ul>
-        </div>
-
-        <!-- Column 4: Contact -->
-        <div>
-          <h4 class="text-white text-sm font-semibold uppercase tracking-wider mb-6">Contact Us</h4>
-          <ul class="space-y-4">
-            <li class="flex items-start gap-3">
-              <svg class="w-5 h-5 text-teal mt-0.5 shrink-0" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
-                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
-              </svg>
-              <span class="text-white/50 text-sm">Metro Manila, Philippines</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <svg class="w-5 h-5 text-teal mt-0.5 shrink-0" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/>
-              </svg>
-              <span class="text-white/50 text-sm">+63 (2) 8888-0000</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <svg class="w-5 h-5 text-teal mt-0.5 shrink-0" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/>
-              </svg>
-              <span class="text-white/50 text-sm">info@apollobsm.com</span>
-            </li>
-          </ul>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- Bottom Bar -->
-    <div class="border-t border-white/10">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-        <p class="text-white/40 text-sm">&copy; 2026 Apollo Business Solutions and Management Inc. All rights reserved.</p>
-        <div class="flex gap-6">
-          <a href="#" class="text-white/40 text-sm hover:text-teal transition-colors">Privacy Policy</a>
-          <a href="#" class="text-white/40 text-sm hover:text-teal transition-colors">Terms of Service</a>
-        </div>
-      </div>
-    </div>
-  </footer>
+  <div id="footer-placeholder"></div>
 
   <!-- ===================== SCRIPTS ===================== -->
+  <script src="./js/services-data.js"></script>
+  <script src="./js/components.js"></script>
   <script>
-    // Mobile menu toggle
-    const menuToggle = document.getElementById('menu-toggle');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const menuOpenIcon = document.getElementById('menu-open-icon');
-    const menuCloseIcon = document.getElementById('menu-close-icon');
-
-    menuToggle.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
-      menuOpenIcon.classList.toggle('hidden');
-      menuCloseIcon.classList.toggle('hidden');
-    });
-
-    function closeMobileMenu() {
-      mobileMenu.classList.add('hidden');
-      menuOpenIcon.classList.remove('hidden');
-      menuCloseIcon.classList.add('hidden');
-    }
-
     // Scroll-triggered fade-in animations
     const fadeElements = document.querySelectorAll('.fade-in');
     const observer = new IntersectionObserver(
@@ -787,16 +664,6 @@
       { threshold: 0.15 }
     );
     fadeElements.forEach((el) => observer.observe(el));
-
-    // Navbar background on scroll
-    const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 50) {
-        navbar.classList.add('shadow-lg', 'shadow-dark/10');
-      } else {
-        navbar.classList.remove('shadow-lg', 'shadow-dark/10');
-      }
-    });
 
     // FAQ Accordion toggle
     document.querySelectorAll('.faq-toggle').forEach((btn) => {
@@ -820,7 +687,120 @@
         }
       });
     });
-  </script>
+
+const canvas = document.getElementById('waveCanvas');
+const ctx = canvas.getContext('2d');
+
+function resize() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+resize();
+window.addEventListener('resize', () => { resize(); draw(); });
+
+// Mouse interaction
+let mouse = { x: canvas.width * 0.75, y: canvas.height * 0.4 };
+window.addEventListener('mousemove', e => {
+  mouse.x = e.clientX;
+  mouse.y = e.clientY;
+});
+
+let time = 0;
+
+function draw() {
+  const W = canvas.width;
+  const H = canvas.height;
+
+  ctx.clearRect(0, 0, W, H);
+
+  // Dark gradient base
+  const bg = ctx.createLinearGradient(0, 0, W, H);
+ 
+  ctx.fillRect(0, 0, W, H);
+
+  const totalLines = 80;
+  const spacing = H / totalLines;
+
+  for (let i = 0; i < totalLines; i++) {
+    const baseY = i * spacing;
+
+    // Color gradient: blue → purple → teal across lines
+    const t = i / totalLines;
+    let r, g, b;
+    if (t < 0.4) {
+      // Blue to purple
+      const p = t / 0.4;
+      r = Math.round(20 + p * 80);
+      g = Math.round(40 + p * 10);
+      b = Math.round(120 + p * 60);
+    } else if (t < 0.7) {
+      // Purple to teal
+      const p = (t - 0.4) / 0.3;
+      r = Math.round(100 - p * 70);
+      g = Math.round(50 + p * 100);
+      b = Math.round(180 - p * 40);
+    } else {
+      // Teal to green-blue
+      const p = (t - 0.7) / 0.3;
+      r = Math.round(30 - p * 10);
+      g = Math.round(150 + p * 50);
+      b = Math.round(140 - p * 20);
+    }
+
+    const alpha = 0.25 + 0.15 * Math.sin(i * 0.3);
+    ctx.strokeStyle = `rgba(${r},${g},${b},${alpha})`;
+    ctx.lineWidth = 0.8;
+
+    ctx.beginPath();
+
+    const steps = 300;
+    for (let s = 0; s <= steps; s++) {
+      const x = (s / steps) * W;
+      const xNorm = x / W;
+
+      // Distance from mouse — lines bend near cursor
+      const dx = x - mouse.x;
+      const dy = baseY - mouse.y;
+      const dist = Math.sqrt(dx * dx + dy * dy);
+      const influence = Math.max(0, 1 - dist / 280);
+      const repel = influence * 40 * Math.exp(-dist / 150);
+
+      // Wave layers
+      const wave1 = Math.sin(xNorm * 4 + time * 0.6 + i * 0.12) * 12;
+      const wave2 = Math.sin(xNorm * 8 - time * 0.4 + i * 0.08) * 5;
+      const wave3 = Math.sin(xNorm * 2 + time * 0.2 + i * 0.2)  * 18;
+
+      // Diagonal flow: right side droops
+      const diag = xNorm * xNorm * 60;
+
+      const y = baseY + wave1 + wave2 + wave3 + diag - repel;
+
+      s === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+    }
+
+    ctx.stroke();
+  }
+
+  // Subtle radial glow from mouse area (top-right silhouette zone)
+  const glow = ctx.createRadialGradient(
+    W * 0.78, H * 0.35, 0,
+    W * 0.78, H * 0.35, W * 0.35
+  );
+  glow.addColorStop(0,   'rgba(80, 60, 180, 0.12)');
+  glow.addColorStop(0.5, 'rgba(30, 100, 160, 0.06)');
+  glow.addColorStop(1,   'rgba(0,0,0,0)');
+  ctx.fillStyle = glow;
+  ctx.fillRect(0, 0, W, H);
+}
+
+function animate() {
+  time += 0.012;
+  draw();
+  requestAnimationFrame(animate);
+}
+
+animate();
+</script>
 
 </body>
 </html>

@@ -1,0 +1,164 @@
+/**
+ * components.js
+ * Injects reusable navbar and footer components into the page without fetch(),
+ * so it works with both file:// and http:// protocols.
+ */
+(function () {
+
+  /* ------------------------------------------------------------------ */
+  /*  NAVBAR HTML                                                         */
+  /* ------------------------------------------------------------------ */
+  var NAVBAR_HTML = '<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-lborder transition-all duration-300">' +
+    '<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">' +
+      '<div class="flex items-center justify-between h-20">' +
+        '<a href="./index.html#hero" class="flex items-center gap-3">' +
+          '<img src="./logo.jpg" alt="Apollo Logo" class="h-14 w-auto rounded-lg shadow-sm" />' +
+          '<div class="flex flex-col leading-tight">' +
+            '<span class="text-base font-extrabold tracking-tight text-dark">APOLLO</span>' +
+            '<span class="text-[11px] font-medium text-dark/50 tracking-wide uppercase">Business Solutions &amp; Management Inc.</span>' +
+          '</div>' +
+        '</a>' +
+        '<div class="hidden lg:flex items-center gap-8">' +
+          '<a href="./index.html#hero" class="text-sm font-medium text-dark/70 hover:text-teal transition-colors">Home</a>' +
+          '<a href="./index.html#about" class="text-sm font-medium text-dark/70 hover:text-teal transition-colors">About</a>' +
+          '<a href="./index.html#services" class="text-sm font-medium text-dark/70 hover:text-teal transition-colors">Services</a>' +
+          '<a href="./index.html#features" class="text-sm font-medium text-dark/70 hover:text-teal transition-colors">Why Choose Us</a>' +
+          '<a href="./index.html#faq" class="text-sm font-medium text-dark/70 hover:text-teal transition-colors">FAQ</a>' +
+          '<a href="./index.html#cta" class="text-sm font-medium text-dark/70 hover:text-teal transition-colors">Contact</a>' +
+          '<a href="./index.html#cta" class="ml-4 inline-flex items-center px-6 py-2.5 bg-teal text-white text-sm font-semibold rounded-lg hover:bg-dark transition-colors">Get Started</a>' +
+        '</div>' +
+        '<button id="menu-toggle" class="lg:hidden p-2 text-dark/70 hover:text-teal transition-colors" aria-label="Toggle menu">' +
+          '<svg id="menu-open-icon" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>' +
+          '<svg id="menu-close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>' +
+        '</button>' +
+      '</div>' +
+    '</div>' +
+    '<div id="mobile-menu" class="lg:hidden hidden bg-white border-t border-lborder">' +
+      '<div class="px-4 py-6 space-y-4">' +
+        '<a href="./index.html#hero" class="block text-sm font-medium text-dark/70 hover:text-teal transition-colors">Home</a>' +
+        '<a href="./index.html#about" class="block text-sm font-medium text-dark/70 hover:text-teal transition-colors">About</a>' +
+        '<a href="./index.html#services" class="block text-sm font-medium text-dark/70 hover:text-teal transition-colors">Services</a>' +
+        '<a href="./index.html#features" class="block text-sm font-medium text-dark/70 hover:text-teal transition-colors">Why Choose Us</a>' +
+        '<a href="./index.html#faq" class="block text-sm font-medium text-dark/70 hover:text-teal transition-colors">FAQ</a>' +
+        '<a href="./index.html#cta" class="block text-sm font-medium text-dark/70 hover:text-teal transition-colors">Contact</a>' +
+        '<a href="./index.html#cta" class="inline-flex items-center px-6 py-2.5 bg-teal text-white text-sm font-semibold rounded-lg hover:bg-dark transition-colors">Get Started</a>' +
+      '</div>' +
+    '</div>' +
+  '</nav>';
+
+  /* ------------------------------------------------------------------ */
+  /*  FOOTER HTML                                                         */
+  /* ------------------------------------------------------------------ */
+  var FOOTER_HTML = '<footer class="bg-dark">' +
+    '<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">' +
+      '<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12">' +
+        '<div class="lg:col-span-1">' +
+          '<a href="./index.html#hero" class="flex items-center gap-3 mb-6">' +
+            '<img src="./logo.jpg" alt="Apollo Business Solutions" class="h-10 w-auto brightness-0 invert" />' +
+          '</a>' +
+          '<p class="text-white/50 text-sm leading-relaxed mb-6">A modern financial technology partner delivering efficient, scalable, and reliable systems for collections, financial services, and loan marketing.</p>' +
+          '<div class="flex gap-4">' +
+            '<a href="#" class="w-9 h-9 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-white/40 hover:text-teal hover:border-teal/30 transition-colors" aria-label="Facebook"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>' +
+            '<a href="#" class="w-9 h-9 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-white/40 hover:text-teal hover:border-teal/30 transition-colors" aria-label="LinkedIn"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>' +
+            '<a href="#" class="w-9 h-9 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-white/40 hover:text-teal hover:border-teal/30 transition-colors" aria-label="Twitter"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg></a>' +
+          '</div>' +
+        '</div>' +
+        '<div>' +
+          '<h4 class="text-white text-sm font-semibold uppercase tracking-wider mb-6">Quick Links</h4>' +
+          '<ul class="space-y-3">' +
+            '<li><a href="./index.html#hero" class="text-white/50 text-sm hover:text-teal transition-colors">Home</a></li>' +
+            '<li><a href="./index.html#about" class="text-white/50 text-sm hover:text-teal transition-colors">About Us</a></li>' +
+            '<li><a href="./index.html#services" class="text-white/50 text-sm hover:text-teal transition-colors">Services</a></li>' +
+            '<li><a href="./index.html#features" class="text-white/50 text-sm hover:text-teal transition-colors">Why Choose Us</a></li>' +
+            '<li><a href="./index.html#faq" class="text-white/50 text-sm hover:text-teal transition-colors">FAQ</a></li>' +
+            '<li><a href="./index.html#cta" class="text-white/50 text-sm hover:text-teal transition-colors">Contact</a></li>' +
+          '</ul>' +
+        '</div>' +
+        '<div>' +
+          '<h4 class="text-white text-sm font-semibold uppercase tracking-wider mb-6">Services</h4>' +
+          '<ul class="space-y-3">' +
+            '<li><a href="./service.html?service=call-collection" class="text-white/50 text-sm hover:text-teal transition-colors">Call Collection</a></li>' +
+            '<li><a href="./service.html?service=field-collection" class="text-white/50 text-sm hover:text-teal transition-colors">Field Collection</a></li>' +
+            '<li><a href="./service.html?service=credit-investigation" class="text-white/50 text-sm hover:text-teal transition-colors">Credit Investigation</a></li>' +
+            '<li><a href="./service.html?service=legal-collections" class="text-white/50 text-sm hover:text-teal transition-colors">Legal Collections</a></li>' +
+            '<li><a href="./service.html?service=vehicle-repossession" class="text-white/50 text-sm hover:text-teal transition-colors">Vehicle Repossession</a></li>' +
+            '<li><a href="./service.html?service=housing-foreclosure" class="text-white/50 text-sm hover:text-teal transition-colors">Housing Foreclosure</a></li>' +
+          '</ul>' +
+        '</div>' +
+        '<div>' +
+          '<h4 class="text-white text-sm font-semibold uppercase tracking-wider mb-6">Contact Us</h4>' +
+          '<ul class="space-y-4">' +
+            '<li class="flex items-start gap-3"><svg class="w-5 h-5 text-teal mt-0.5 shrink-0" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/></svg><span class="text-white/50 text-sm">Metro Manila, Philippines</span></li>' +
+            '<li class="flex items-start gap-3"><svg class="w-5 h-5 text-teal mt-0.5 shrink-0" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></svg><span class="text-white/50 text-sm">+63 (2) 8888-0000</span></li>' +
+            '<li class="flex items-start gap-3"><svg class="w-5 h-5 text-teal mt-0.5 shrink-0" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/></svg><span class="text-white/50 text-sm">info@apollobsm.com</span></li>' +
+          '</ul>' +
+        '</div>' +
+      '</div>' +
+    '</div>' +
+    '<div class="border-t border-white/10">' +
+      '<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">' +
+        '<p class="text-white/40 text-sm">&copy; 2026 Apollo Business Solutions and Management Inc. All rights reserved.</p>' +
+        '<div class="flex gap-6">' +
+          '<a href="#" class="text-white/40 text-sm hover:text-teal transition-colors">Privacy Policy</a>' +
+          '<a href="#" class="text-white/40 text-sm hover:text-teal transition-colors">Terms of Service</a>' +
+        '</div>' +
+      '</div>' +
+    '</div>' +
+  '</footer>';
+
+  /* ------------------------------------------------------------------ */
+  /*  INJECT HELPER — no fetch(), works with file:// and http://          */
+  /* ------------------------------------------------------------------ */
+  function injectComponent(placeholderId, htmlString, callback) {
+    var placeholder = document.getElementById(placeholderId);
+    if (!placeholder) return;
+    var temp = document.createElement('div');
+    temp.innerHTML = htmlString.trim();
+    var component = temp.firstElementChild;
+    placeholder.parentNode.replaceChild(component, placeholder);
+    if (typeof callback === 'function') callback();
+  }
+
+  function initNavbar() {
+    var menuToggle = document.getElementById('menu-toggle');
+    var mobileMenu = document.getElementById('mobile-menu');
+    var menuOpenIcon = document.getElementById('menu-open-icon');
+    var menuCloseIcon = document.getElementById('menu-close-icon');
+
+    if (menuToggle && mobileMenu) {
+      menuToggle.addEventListener('click', function () {
+        mobileMenu.classList.toggle('hidden');
+        if (menuOpenIcon) menuOpenIcon.classList.toggle('hidden');
+        if (menuCloseIcon) menuCloseIcon.classList.toggle('hidden');
+      });
+    }
+
+    if (mobileMenu) {
+      mobileMenu.querySelectorAll('a').forEach(function (link) {
+        link.addEventListener('click', function () {
+          mobileMenu.classList.add('hidden');
+          if (menuOpenIcon) menuOpenIcon.classList.remove('hidden');
+          if (menuCloseIcon) menuCloseIcon.classList.add('hidden');
+        });
+      });
+    }
+
+    var navbar = document.getElementById('navbar');
+    if (navbar) {
+      window.addEventListener('scroll', function () {
+        if (window.scrollY > 50) {
+          navbar.classList.add('shadow-lg', 'shadow-dark/10');
+        } else {
+          navbar.classList.remove('shadow-lg', 'shadow-dark/10');
+        }
+      });
+    }
+  }
+
+  // Inject navbar then footer
+  injectComponent('navbar-placeholder', NAVBAR_HTML, function () {
+    initNavbar();
+  });
+
+  injectComponent('footer-placeholder', FOOTER_HTML, null);
+})();

@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="600" height="400">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#142838;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1E3D54;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4DB8B2;stop-opacity:0.2" />
+      <stop offset="100%" style="stop-color:#4DB8B2;stop-opacity:0.05" />
+    </linearGradient>
+  </defs>
+  <rect width="600" height="400" fill="url(#bg)" rx="16"/>
+  <circle cx="500" cy="80" r="160" fill="url(#accent)"/>
+  <circle cx="80" cy="340" r="100" fill="url(#accent)"/>
+  <!-- Scale of justice -->
+  <g transform="translate(185, 75)">
+    <!-- Centre beam -->
+    <line x1="115" y1="30" x2="115" y2="210" stroke="#4DB8B2" stroke-width="8" stroke-linecap="round"/>
+    <!-- Top bar -->
+    <line x1="35" y1="60" x2="195" y2="60" stroke="#4DB8B2" stroke-width="8" stroke-linecap="round"/>
+    <!-- Left pan -->
+    <path d="M35 60 L10 120 L60 120 Z" fill="none" stroke="#4DB8B2" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- Right pan -->
+    <path d="M195 60 L170 100 L220 100 Z" fill="none" stroke="#4DB8B2" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" opacity="0.7"/>
+    <!-- Base -->
+    <line x1="75" y1="210" x2="155" y2="210" stroke="#4DB8B2" stroke-width="8" stroke-linecap="round"/>
+  </g>
+  <text x="300" y="340" text-anchor="middle" font-family="Inter, sans-serif" font-size="22" font-weight="700" fill="#4DB8B2" letter-spacing="1">Legal Collections</text>
+  <text x="300" y="368" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" fill="#8BAFC4" letter-spacing="0.5">Legally compliant debt recovery action</text>
+</svg>
