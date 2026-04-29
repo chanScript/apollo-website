@@ -153,6 +153,31 @@
         }
       });
     }
+
+    // Active section highlighting
+    var sectionIds = ['cta', 'faq', 'features', 'services', 'about', 'hero'];
+    function updateActiveNav() {
+      var scrollPos = window.scrollY + 130;
+      var activeId = 'hero';
+      sectionIds.forEach(function (id) {
+        var sec = document.getElementById(id);
+        if (sec && sec.offsetTop <= scrollPos) { activeId = id; }
+      });
+      document.querySelectorAll('#navbar a[href]').forEach(function (link) {
+        var href = link.getAttribute('href') || '';
+        var hash = href.split('#')[1] || '';
+        // Don't mark the "Get Started" CTA button as active-nav
+        if (!link.classList.contains('bg-teal')) {
+          if (hash === activeId) {
+            link.classList.add('nav-active');
+          } else {
+            link.classList.remove('nav-active');
+          }
+        }
+      });
+    }
+    window.addEventListener('scroll', updateActiveNav, { passive: true });
+    updateActiveNav();
   }
 
   // Inject navbar then footer
