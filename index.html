@@ -7,6 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -108,6 +109,28 @@
     .group:hover .service-icon-box svg {
       color: white;
     }
+    /* Aurora Liquid Animation - More Vivid */
+    @keyframes aurora-liquid {
+      0%, 100% { border-radius: 40% 60% 70% 30% / 40% 40% 60% 50%; transform: translate(0, 0) rotate(0deg) scale(1); }
+      33% { border-radius: 70% 30% 50% 50% / 30% 30% 70% 70%; transform: translate(150px, -80px) rotate(15deg) scale(1.2); }
+      66% { border-radius: 30% 70% 30% 70% / 50% 50% 30% 30%; transform: translate(-100px, 120px) rotate(-15deg) scale(0.9); }
+    }
+    .animate-aurora {
+      animation: aurora-liquid 5s ease-in-out infinite alternate;
+    }
+    .animate-aurora-reverse {
+      animation: aurora-liquid 7.5s ease-in-out infinite alternate-reverse;
+    }
+    .bg-mesh-gradient {
+      background-color: #ffffff;
+      background-image: 
+        /* Very soft base wash */
+        radial-gradient(ellipse 120% 100% at 30% 50%, rgba(168, 230, 226, 0.15) 0%, transparent 60%),
+        /* Soft green hint - left side */
+        radial-gradient(ellipse 80% 80% at 20% 40%, rgba(125, 212, 206, 0.12) 0%, transparent 50%),
+        /* Soft blue hint - right side */
+        radial-gradient(ellipse 80% 80% at 80% 60%, rgba(77, 184, 178, 0.12) 0%, transparent 50%);
+    }
 
   </style>
 </head>
@@ -117,171 +140,154 @@
   <div id="navbar-placeholder"></div>
 
   <!-- ===================== HERO SECTION ===================== -->
-  <section id="hero" class="relative min-h-screen flex items-center pt-20">
-    <div class="absolute inset-0">
-      <img src="laptop-main-background.jpg" alt="" class="w-full h-full object-cover" />
-      <!-- Dark overlay for text readability -->
-      <div class="hero-overlay absolute inset-0"></div>
-    </div>
+  <section id="hero" class="relative overflow-hidden pt-40 pb-32 px-4 bg-mesh-gradient min-h-[80vh] flex flex-col justify-center items-center text-center">
+    <!-- Sharp Vivid Aurora Background (Matching Reference EXACTLY) -->
+    <!-- Sharp Lime Green Blob - Distinct Left Focus -->
+    <div class="absolute top-[5%] left-[-10%] w-[800px] h-[700px] bg-[#4ade80] opacity-70 pointer-events-none animate-aurora" 
+         style="filter: blur(50px); border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;"></div>
+    
+    <!-- Sharp Teal Blob - Distinct Right Focus -->
+    <div class="absolute bottom-[5%] right-[-10%] w-[900px] h-[750px] bg-[#2dd4bf] opacity-70 pointer-events-none z-0 animate-aurora-reverse" 
+         style="filter: blur(60px); animation-delay: -5s; border-radius: 30% 70% 40% 60% / 50% 30% 70% 40%;"></div>
+    
+    <!-- Mixing Layer - Soft Center Blend -->
+    <div class="absolute top-[20%] left-[25%] w-[700px] h-[600px] bg-[#06b6d4] opacity-35 pointer-events-none z-0 animate-aurora" 
+         style="filter: blur(90px); animation-delay: -2.5s;"></div>
+    
+    <!-- Bright Accent - Top Right -->
+    <div class="absolute top-[10%] right-[5%] w-[500px] h-[450px] bg-[#84cc16] opacity-30 pointer-events-none z-0 animate-aurora-reverse" 
+         style="filter: blur(70px); animation-delay: -7s;"></div>
 
-    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-28 lg:py-44">
-      <div class="max-w-5xl mx-auto text-center">
-        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-teal/15 border border-teal/30 mb-10">
-          <span class="w-2 h-2 rounded-full bg-teal animate-pulse"></span>
-          <span class="text-teal-lighter text-sm font-medium">Trusted by Financial Institutions &middot; 5 Global Regions</span>
-        </div>
+    <!-- Fade out bottom so it melts completely into the next white section -->
+    <div class="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-t from-white via-white/80 to-transparent pointer-events-none z-10"></div>
 
-        <h1 class="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold leading-[1.08] mb-6 text-white">
-          Your End-to-End Partner in
-          <br class="hidden sm:block" />
-          <span class="text-teal">Debt Recovery &amp; Collections</span>
-        </h1>
-
-        <p class="text-lg sm:text-xl text-white/80 leading-relaxed mb-12 max-w-xl mx-auto">
-          From call collection to legal proceedings and asset repossession — Apollo gives financial institutions the systems and expertise to <span class="text-white font-semibold">recover more, cost-effectively.</span>
-        </p>
-
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="#cta" class="inline-flex items-center justify-center px-10 py-4 bg-teal text-white font-bold text-base rounded-xl shadow-lg shadow-teal/30 hover:bg-teal-light hover:-translate-y-0.5 hover:shadow-xl hover:shadow-teal/40 active:translate-y-0 transition-all duration-200">
-            Get Started
-            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-            </svg>
-          </a>
-          <a href="#cta" class="inline-flex items-center justify-center px-10 py-4 border-2 border-white/50 text-white font-semibold text-base rounded-xl hover:bg-white/10 hover:border-white transition-all duration-200">
-            Contact Us
-          </a>
-        </div>
-
-        <!-- Global Presence -->
-        <div class="mt-12">
-          <p class="text-white/40 text-xs font-semibold uppercase tracking-widest mb-4">Where We Operate</p>
-          <div class="flex flex-wrap gap-2 justify-center">
-            <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/10 border border-white/20 text-white/80 text-xs font-medium">
-              <span class="w-1.5 h-1.5 rounded-full bg-teal shrink-0"></span>Manila
-            </span>
-            <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/10 border border-white/20 text-white/80 text-xs font-medium">
-              <span class="w-1.5 h-1.5 rounded-full bg-teal shrink-0"></span>Singapore
-            </span>
-            <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/10 border border-white/20 text-white/80 text-xs font-medium">
-              <span class="w-1.5 h-1.5 rounded-full bg-teal shrink-0"></span>Dubai
-            </span>
-            <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/10 border border-white/20 text-white/80 text-xs font-medium">
-              <span class="w-1.5 h-1.5 rounded-full bg-teal shrink-0"></span>Canada
-            </span>
-            <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/10 border border-white/20 text-white/80 text-xs font-medium">
-              <span class="w-1.5 h-1.5 rounded-full bg-teal shrink-0"></span>Europe
-            </span>
-          </div>
-        </div>
+    <div class="max-w-4xl mx-auto relative z-20 w-full" data-aos="fade-in">
+      
+      <!-- Pill Badge -->
+      <div class="inline-block shadow-sm border border-teal text-teal bg-white rounded-full px-6 py-2 text-xs md:text-sm font-bold tracking-widest mb-8 uppercase hover:scale-105 transition-transform cursor-default">
+        Premium Collection Services
       </div>
-    </div>
 
-    <!-- Scroll indicator -->
-    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-10">
-      <div class="w-8 h-12 rounded-full border-2 border-white/30 flex items-start justify-center pt-2">
-        <div class="w-1.5 h-3 bg-teal rounded-full animate-bounce"></div>
+      <!-- Main Headline -->
+      <h1 class="text-5xl md:text-[6rem] font-black text-dark tracking-tighter mb-8 leading-[1]">
+        The New Standard in<br />
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-teal to-[#2da8a2]">Debt Recovery.</span>
+      </h1>
+
+      <!-- Subheadline / Description -->
+      <p class="text-lg md:text-xl text-dark/70 max-w-2xl mx-auto mb-12 leading-relaxed font-light">
+        Apollo provides efficient, ethical, and technology-driven collection operations across the globe. We help businesses recover more without compromising brand integrity.
+      </p>
+
+      <!-- CTA Buttons -->
+      <div class="flex flex-wrap items-center justify-center gap-4 mb-14">
+        <a href="#cta" class="px-10 py-4 bg-teal text-white font-bold rounded-lg hover:bg-dark transition-colors text-lg shadow-md">
+          Work With Us
+        </a>
+        <a href="#about" class="px-10 py-4 bg-transparent border-2 border-dark/20 text-dark font-bold rounded-lg hover:border-dark hover:bg-dark/5 transition-colors text-lg">
+          Our Approach
+        </a>
       </div>
+
+      <!-- Locations -->
+      <div class="flex flex-wrap items-center justify-center gap-4 text-dark/60 font-medium text-sm tracking-wide uppercase">
+        <span>Singapore</span>
+        <span class="text-teal">&bull;</span>
+        <span>Manila</span>
+        <span class="text-teal">&bull;</span>
+        <span>Dubai</span>
+        <span class="text-teal">&bull;</span>
+        <span>Canada</span>
+        <span class="text-teal">&bull;</span>
+        <span>Europe</span>
+      </div>
+      
     </div>
   </section>
 
   <!-- ===================== ABOUT SECTION ===================== -->
-  <section id="about" class="relative overflow-hidden bg-white py-20 lg:py-28">
+  <section id="about" class="relative overflow-hidden bg-white py-24 lg:py-32">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="fade-in">
-        <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          <!-- Image Side -->
-          <div class="relative">
-            <div class="rounded-2xl overflow-hidden shadow-2xl shadow-dark/10">
-              <img src="technology-driven.jpg" alt="Apollo team collaborating on financial solutions" class="w-full h-auto object-cover" />
+        <div class="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+            
+          <!-- Text Side (Spans 5 cols) -->
+          <div class="lg:col-span-5 lg:order-1 order-2" data-aos="fade-in">
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-teal/5 border border-teal/20 text-teal text-xs font-bold tracking-widest uppercase mb-8 shadow-sm">
+              <span class="w-1.5 h-1.5 rounded-full bg-teal animate-pulse"></span>
+              Who We Are
             </div>
-            <div class="absolute -bottom-6 -right-6 bg-teal rounded-2xl p-6 shadow-xl hidden sm:block">
-              <div class="text-3xl font-extrabold text-white">10+</div>
-              <div class="text-sm text-white/80">Years of Excellence</div>
-            </div>
-          </div>
-
-          <!-- Text Side -->
-          <div>
-            <span class="text-teal text-sm font-semibold uppercase tracking-widest">Who We Are</span>
-            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold mt-3 mb-6 text-dark">
-              About <span class="text-gradient">Apollo</span>
+            
+            <h2 class="text-4xl md:text-5xl font-black text-dark mb-6 leading-[1.15] tracking-tight">
+              Ethical debt recovery, <br/>
+              <span class="text-transparent bg-clip-text bg-gradient-to-r from-teal to-[#2da8a2]">done right.</span>
             </h2>
-            <p class="text-dark/60 text-lg leading-relaxed mb-8">
-              Apollo Business Solutions and Management Inc. is a technology-driven company providing complete, end-to-end solutions for collection systems, financial service operations, and loan marketing. We position ourselves as a reliable digital partner for financial institutions and businesses.
+            
+            <p class="text-dark/70 text-lg leading-relaxed mb-6 font-light">
+              Apollo Business Solutions and Management Inc. is a technology-driven company providing complete, end-to-end solutions for collection systems, financial service operations, and loan marketing.
             </p>
-
-            <div class="space-y-6">
-              <div class="flex gap-4">
-                <div class="w-12 h-12 rounded-xl bg-teal/10 flex items-center justify-center shrink-0">
-                  <svg class="w-6 h-6 text-teal" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5"/>
-                  </svg>
-                </div>
-                <div>
-                  <h3 class="text-lg font-bold text-dark mb-1">Technology-Driven Approach</h3>
-                  <p class="text-dark/60 text-sm leading-relaxed">We leverage modern technology stacks to build robust, automated financial solutions.</p>
-                </div>
+            
+            <div class="flex gap-8 mt-10 mb-10">
+              <!-- Stat 1 -->
+              <div class="border-l-2 border-teal pl-4">
+                <div class="text-3xl font-black text-dark tracking-tighter mb-1">10+</div>
+                <div class="text-xs text-dark/50 font-bold uppercase tracking-widest leading-tight">Years<br>Experience</div>
               </div>
-
-              <div class="flex gap-4">
-                <div class="w-12 h-12 rounded-xl bg-teal/10 flex items-center justify-center shrink-0">
-                  <svg class="w-6 h-6 text-teal" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342"/>
-                  </svg>
-                </div>
-                <div>
-                  <h3 class="text-lg font-bold text-dark mb-1">Industry Expertise</h3>
-                  <p class="text-dark/60 text-sm leading-relaxed">Deep domain knowledge in financial services, collections, and lending operations.</p>
-                </div>
-              </div>
-
-              <div class="flex gap-4">
-                <div class="w-12 h-12 rounded-xl bg-teal/10 flex items-center justify-center shrink-0">
-                  <svg class="w-6 h-6 text-teal" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"/>
-                  </svg>
-                </div>
-                <div>
-                  <h3 class="text-lg font-bold text-dark mb-1">Reliability &amp; Trust</h3>
-                  <p class="text-dark/60 text-sm leading-relaxed">Long-term partnerships founded on transparency, security, and consistent delivery.</p>
-                </div>
+              <!-- Stat 2 -->
+              <div class="border-l-2 border-[#A8E6E2] pl-4">
+                <div class="text-3xl font-black text-dark tracking-tighter mb-1">Global</div>
+                <div class="text-xs text-dark/50 font-bold uppercase tracking-widest leading-tight">Trusted<br>Operations</div>
               </div>
             </div>
+
+            <div>
+              <a href="#services" class="group inline-flex items-center gap-3 text-teal font-black text-lg hover:text-dark transition-colors uppercase tracking-wide">
+                Explore Services
+                <span class="w-12 h-12 rounded-full bg-teal/10 flex items-center justify-center group-hover:bg-dark group-hover:text-white transition-all transform group-hover:translate-x-1">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                </span>
+              </a>
+            </div>
           </div>
+
+          <!-- Image Side (Spans 7 cols) -->
+          <div class="lg:col-span-7 lg:order-2 order-1 relative group" data-aos="fade-in" data-aos-delay="100">
+            <!-- Decorative backdrop element -->
+            <div class="absolute -inset-4 bg-gradient-to-br from-[#A8E6E2]/40 to-teal/10 rounded-[2.5rem] transform -rotate-3 -z-10 transition-transform group-hover:rotate-0 duration-500"></div>
+            
+            <div class="rounded-[2rem] overflow-hidden shadow-2xl bg-white border-4 border-white">
+              <img src="technology-driven.jpg" alt="Apollo team collaborating" class="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700" />
+            </div>
+          </div>
+          
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===================== STATS / GRADIENT BAND ===================== -->
-  <section class="relative overflow-hidden py-16">
-    <div class="absolute inset-0" style="background: linear-gradient(135deg, #4db8b2 0%, #2da8a2 40%, #142838 100%);"></div>
-    <!-- Decorative circles -->
-    <div class="absolute top-0 right-0 w-80 h-80 rounded-full opacity-10" style="background: radial-gradient(circle, #ffffff 0%, transparent 70%); transform: translate(30%, -40%);"></div>
-    <div class="absolute bottom-0 left-0 w-64 h-64 rounded-full opacity-10" style="background: radial-gradient(circle, #ffffff 0%, transparent 70%); transform: translate(-30%, 40%);"></div>
+  <!-- ===================== STATS / MINIMAL DARK BAND ===================== -->
+  <section class="bg-dark-light border-y border-dark-lighter">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
 
-    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
-
-        <div class="fade-in">
-          <div class="text-4xl sm:text-5xl font-extrabold text-white mb-2">10+</div>
-          <div class="text-sm font-medium text-white/70 uppercase tracking-wider">Years of Excellence</div>
+        <div class="text-center lg:text-left lg:border-r lg:border-dark-lighter" data-aos="fade-in" data-aos-delay="50">
+          <div class="text-5xl lg:text-6xl font-black text-teal mb-1 tracking-tighter">10+</div>
+          <div class="text-xs font-bold text-white/40 uppercase tracking-widest">Years of Excellence</div>
         </div>
 
-        <div class="fade-in">
-          <div class="text-4xl sm:text-5xl font-extrabold text-white mb-2">6</div>
-          <div class="text-sm font-medium text-white/70 uppercase tracking-wider">Core Services</div>
+        <div class="text-center lg:text-left lg:border-r lg:border-dark-lighter" data-aos="fade-in" data-aos-delay="100">
+          <div class="text-5xl lg:text-6xl font-black text-white mb-1 tracking-tighter">6</div>
+          <div class="text-xs font-bold text-white/40 uppercase tracking-widest">Core Services</div>
         </div>
 
-        <div class="fade-in">
-          <div class="text-4xl sm:text-5xl font-extrabold text-white mb-2">5+</div>
-          <div class="text-sm font-medium text-white/70 uppercase tracking-wider">Global Regions</div>
+        <div class="text-center lg:text-left lg:border-r lg:border-dark-lighter" data-aos="fade-in" data-aos-delay="150">
+          <div class="text-5xl lg:text-6xl font-black text-teal mb-1 tracking-tighter">5+</div>
+          <div class="text-xs font-bold text-white/40 uppercase tracking-widest">Global Regions</div>
         </div>
 
-        <div class="fade-in">
-          <div class="text-4xl sm:text-5xl font-extrabold text-white mb-2">40%</div>
-          <div class="text-sm font-medium text-white/70 uppercase tracking-wider">Avg. Cost Reduction</div>
+        <div class="text-center lg:text-left" data-aos="fade-in" data-aos-delay="200">
+          <div class="text-5xl lg:text-6xl font-black text-white mb-1 tracking-tighter">40%</div>
+          <div class="text-xs font-bold text-white/40 uppercase tracking-widest">Avg. Cost Reduction</div>
         </div>
 
       </div>
@@ -289,7 +295,7 @@
   </section>
 
   <!-- ===================== SERVICES SECTION ===================== -->
-  <section id="services" class="relative overflow-hidden bg-lgray py-20 lg:py-28">
+  <section id="services" class="relative overflow-hidden bg-white py-20 lg:py-28">
 
       <span class="section-bubble" style="width:18px;height:18px;left:54%;bottom:-20px;border:1px solid rgba(77,184,178,0.18);background:rgba(77,184,178,0.05);animation-duration:11s;animation-delay:3s;"></span>
       <span class="section-bubble" style="width:26px;height:26px;left:71%;bottom:-20px;border:1px solid rgba(77,184,178,0.13);background:rgba(77,184,178,0.04);animation-duration:14s;animation-delay:4.5s;"></span>
@@ -298,7 +304,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="fade-in">
         <!-- Section Header -->
-        <div class="text-center mb-16">
+        <div class="text-center mb-16" data-aos="fade-up">
           <span class="text-teal text-sm font-semibold uppercase tracking-widest">What We Do</span>
           <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold mt-3 mb-6 text-dark">
             Our <span class="text-gradient">Services</span>
@@ -312,118 +318,104 @@
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
 
           <!-- Service 1: Call Collection -->
-          <div class="bg-white rounded-2xl p-8 border border-lborder card-hover group">
-            <div class="flex flex-col gap-5">
-              <div class="service-icon-box w-14 h-14 rounded-xl bg-teal/10 flex items-center justify-center shrink-0">
-                <svg class="w-7 h-7 text-teal" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+          <div class="group relative bg-white rounded-xl p-8 border-l-4 border-transparent hover:border-teal shadow-sm hover:shadow-md transition-all duration-300" data-aos="fade-up" data-aos-delay="0">
+            <div class="relative z-10 flex flex-col h-full">
+              <div class="w-12 h-12 rounded-lg bg-teal/10 flex items-center justify-center mb-6">
+                <svg class="w-6 h-6 text-teal group-hover:scale-110 transition-transform duration-300" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/>
                 </svg>
               </div>
-              <div>
-
-                <h3 class="text-lg font-bold text-dark mb-2">Call Collection</h3>
-                <p class="text-dark/60 text-sm leading-relaxed mb-4">Expert communication techniques are used to recover outstanding debts through phone calls, maintaining professionalism and compliance with regulations.</p>
-                <a href="service.html?service=call-collection" class="inline-flex items-center text-teal text-sm font-medium hover:text-dark transition-colors">
-                  Learn more
-                  <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
-                </a>
-              </div>
+              <h3 class="text-xl font-bold text-dark mb-3 group-hover:text-teal transition-colors">Call Collection</h3>
+              <p class="text-dark/60 text-sm leading-relaxed mb-6">Expert communication techniques are used to recover outstanding debts through phone calls, maintaining professionalism and compliance with regulations.</p>
+              <a href="service.html?service=call-collection" class="inline-flex items-center text-teal font-semibold hover:text-dark transition-colors group/link mt-auto">
+                Explore Service
+                <svg class="w-4 h-4 ml-1 transform group-hover/link:translate-x-1.5 transition-transform" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+              </a>
             </div>
           </div>
 
           <!-- Service 2: Field Collection -->
-          <div class="bg-white rounded-2xl p-8 border border-lborder card-hover group">
-            <div class="flex flex-col gap-5">
-              <div class="service-icon-box w-14 h-14 rounded-xl bg-teal/10 flex items-center justify-center shrink-0">
-                <svg class="w-7 h-7 text-teal" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+          <div class="group relative bg-white rounded-xl p-8 border-l-4 border-transparent hover:border-teal shadow-sm hover:shadow-md transition-all duration-300" data-aos="fade-up" data-aos-delay="80">
+            <div class="relative z-10 flex flex-col h-full">
+              <div class="w-12 h-12 rounded-lg bg-teal/10 flex items-center justify-center mb-6">
+                <svg class="w-6 h-6 text-teal group-hover:scale-110 transition-transform duration-300" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z"/>
                 </svg>
               </div>
-              <h3 class="text-lg font-bold text-dark mb-2">Field Collection</h3>
-              <p class="text-dark/60 text-sm leading-relaxed mb-4">Experienced agents personally visit debtors to negotiate and collect overdue payments, enhancing the chances of successful recovery.</p>
-              <div>
-                
-                <a href="service.html?service=field-collection" class="inline-flex items-center text-teal text-sm font-medium hover:text-dark transition-colors">
-                  Learn more
-                  <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
-                </a>
-              </div>
+              <h3 class="text-xl font-bold text-dark mb-3 group-hover:text-teal transition-colors">Field Collection</h3>
+              <p class="text-dark/60 text-sm leading-relaxed mb-6">Experienced agents personally visit debtors to negotiate and collect overdue payments, enhancing the chances of successful recovery.</p>
+              <a href="service.html?service=field-collection" class="inline-flex items-center text-teal font-semibold hover:text-dark transition-colors group/link mt-auto">
+                Explore Service
+                <svg class="w-4 h-4 ml-1 transform group-hover/link:translate-x-1.5 transition-transform" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+              </a>
             </div>
           </div>
 
           <!-- Service 3: Credit Investigation -->
-          <div class="bg-white rounded-2xl p-8 border border-lborder card-hover group">
-            <div class="flex flex-col gap-5">
-              <div class="service-icon-box w-14 h-14 rounded-xl bg-teal/10 flex items-center justify-center shrink-0">
-                <svg class="w-7 h-7 text-teal" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+          <div class="group relative bg-white rounded-xl p-8 border-l-4 border-transparent hover:border-teal shadow-sm hover:shadow-md transition-all duration-300" data-aos="fade-up" data-aos-delay="160">
+            <div class="relative z-10 flex flex-col h-full">
+              <div class="w-12 h-12 rounded-lg bg-teal/10 flex items-center justify-center mb-6">
+                <svg class="w-6 h-6 text-teal group-hover:scale-110 transition-transform duration-300" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"/>
                 </svg>
               </div>
-              <h3 class="text-lg font-bold text-dark mb-2"> Credit Investigation </h3>
-              <p class="text-dark/60 text-sm leading-relaxed mb-4">In-depth credit investigations are conducted to assess a debtor\'s financial standing and history, enabling informed decisions about debt recovery strategies.</p>
-              <div>
-                <a href="service.html?service=credit-investigation" class="inline-flex items-center text-teal text-sm font-medium hover:text-dark transition-colors">
-                  Learn more
-                  <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
-                </a>
-              </div>
+              <h3 class="text-xl font-bold text-dark mb-3 group-hover:text-teal transition-colors">Credit Investigation</h3>
+              <p class="text-dark/60 text-sm leading-relaxed mb-6">In-depth credit investigations are conducted to assess a debtor's financial standing and history, enabling informed decisions.</p>
+              <a href="service.html?service=credit-investigation" class="inline-flex items-center text-teal font-semibold hover:text-dark transition-colors group/link mt-auto">
+                Explore Service
+                <svg class="w-4 h-4 ml-1 transform group-hover/link:translate-x-1.5 transition-transform" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+              </a>
             </div>
           </div>
 
           <!-- Service 4: Legal Collections -->
-          <div class="bg-white rounded-2xl p-8 border border-lborder card-hover group">
-            <div class="flex flex-col gap-5">
-              <div class="service-icon-box w-14 h-14 rounded-xl bg-teal/10 flex items-center justify-center shrink-0">
-                <svg class="w-7 h-7 text-teal" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+          <div class="group relative bg-white rounded-xl p-8 border-l-4 border-transparent hover:border-teal shadow-sm hover:shadow-md transition-all duration-300" data-aos="fade-up" data-aos-delay="0">
+            <div class="relative z-10 flex flex-col h-full">
+              <div class="w-12 h-12 rounded-lg bg-teal/10 flex items-center justify-center mb-6">
+                <svg class="w-6 h-6 text-teal group-hover:scale-110 transition-transform duration-300" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v17.25m0 0c-1.472 0-2.882.265-4.185.75M12 20.25c1.472 0 2.882.265 4.185.75M18.75 4.97A48.416 48.416 0 0012 4.5c-2.291 0-4.545.16-6.75.47m13.5 0c1.01.143 2.01.317 3 .52m-3-.52l2.62 10.726c.122.499-.106 1.028-.589 1.202a5.988 5.988 0 01-2.031.352 5.988 5.988 0 01-2.031-.352c-.483-.174-.711-.703-.59-1.202L18.75 4.971zm-16.5.52c.99-.203 1.99-.377 3-.52m0 0l2.62 10.726c.122.499-.106 1.028-.589 1.202a5.989 5.989 0 01-2.031.352 5.989 5.989 0 01-2.031-.352c-.483-.174-.711-.703-.59-1.202L5.25 4.971z"/>
                 </svg>
               </div>
-              <h3 class="text-lg font-bold text-dark mb-2">Legal Collections</h3>
-              <p class="text-dark/60 text-sm leading-relaxed mb-4">When necessary, legal action is initiated to recover debts, leveraging legal expertise to maximize collections while adhering to all legal requirements.</p>
-              <div>
-                <a href="service.html?service=legal-collections" class="inline-flex items-center text-teal text-sm font-medium hover:text-dark transition-colors">
-                  Learn more
-                  <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
-                </a>
-              </div>
+              <h3 class="text-xl font-bold text-dark mb-3 group-hover:text-teal transition-colors">Legal Collections</h3>
+              <p class="text-dark/60 text-sm leading-relaxed mb-6">When necessary, legal action is initiated to recover debts, leveraging legal expertise to maximize collections lawfully.</p>
+              <a href="service.html?service=legal-collections" class="inline-flex items-center text-teal font-semibold hover:text-dark transition-colors group/link mt-auto">
+                Explore Service
+                <svg class="w-4 h-4 ml-1 transform group-hover/link:translate-x-1.5 transition-transform" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+              </a>
             </div>
           </div>
 
           <!-- Service 5: Vehicle Repossession -->
-          <div class="bg-white rounded-2xl p-8 border border-lborder card-hover group">
-            <div class="flex flex-col gap-5">
-              <div class="service-icon-box w-14 h-14 rounded-xl bg-teal/10 flex items-center justify-center shrink-0">
-                <svg class="w-7 h-7 text-teal" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+          <div class="group relative bg-white rounded-xl p-8 border-l-4 border-transparent hover:border-teal shadow-sm hover:shadow-md transition-all duration-300" data-aos="fade-up" data-aos-delay="80">
+            <div class="relative z-10 flex flex-col h-full">
+              <div class="w-12 h-12 rounded-lg bg-teal/10 flex items-center justify-center mb-6">
+                <svg class="w-6 h-6 text-teal group-hover:scale-110 transition-transform duration-300" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 00-3.213-9.193 2.056 2.056 0 00-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 00-10.026 0 1.106 1.106 0 00-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12"/>
                 </svg>
               </div>
-              <h3 class="text-lg font-bold text-dark mb-2">Vehicle Repossession </h3>
-              <p class="text-dark/60 text-sm leading-relaxed mb-4">Efficient and lawful vehicle repossession services are offered to recover outstanding auto loans or leases on behalf of clients.</p>
-              <div>
-                <a href="service.html?service=vehicle-repossession" class="inline-flex items-center text-teal text-sm font-medium hover:text-dark transition-colors">
-                  Learn more
-                  <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
-                </a>
-              </div>
+              <h3 class="text-xl font-bold text-dark mb-3 group-hover:text-teal transition-colors">Vehicle Repossession</h3>
+              <p class="text-dark/60 text-sm leading-relaxed mb-6">Efficient and lawful vehicle repossession services are offered to recover outstanding auto loans or leases on behalf of clients.</p>
+              <a href="service.html?service=vehicle-repossession" class="inline-flex items-center text-teal font-semibold hover:text-dark transition-colors group/link mt-auto">
+                Explore Service
+                <svg class="w-4 h-4 ml-1 transform group-hover/link:translate-x-1.5 transition-transform" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+              </a>
             </div>
           </div>
 
           <!-- Service 6: Housing Foreclosure -->
-          <div class="bg-white rounded-2xl p-8 border border-lborder card-hover group">
-            <div class="flex flex-col gap-5">
-              <div class="service-icon-box w-14 h-14 rounded-xl bg-teal/10 flex items-center justify-center shrink-0">
-                <svg class="w-7 h-7 text-teal" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+          <div class="group relative bg-white rounded-xl p-8 border-l-4 border-transparent hover:border-teal shadow-sm hover:shadow-md transition-all duration-300" data-aos="fade-up" data-aos-delay="160">
+            <div class="relative z-10 flex flex-col h-full">
+              <div class="w-12 h-12 rounded-lg bg-teal/10 flex items-center justify-center mb-6">
+                <svg class="w-6 h-6 text-teal group-hover:scale-110 transition-transform duration-300" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 21v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21m0 0h4.5V3.545M12.75 21h7.5V10.75M2.25 21h1.5m18 0h-18M2.25 9l4.5-1.636M18.75 3l-1.5.545m0 6.205l3 1m1.5.5l-1.5-.5M6.75 7.364V3h-3v18m3-13.636l10.5-3.819"/>
                 </svg>
               </div>
-              <h3 class="text-lg font-bold text-dark mb-2">Housing Foreclosure</h3>
-              <p class="text-dark/60 text-sm leading-relaxed mb-4">A specialised team manages the complex process of housing foreclosure, ensuring the legal and regulatory aspects are handled appropriately to recover debts related to real estate.</p>
-              <div>
-                <a href="service.html?service=housing-foreclosure" class="inline-flex items-center text-teal text-sm font-medium hover:text-dark transition-colors">
-                  Learn more
-                  <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
-                </a>
-              </div>
+              <h3 class="text-xl font-bold text-dark mb-3 group-hover:text-teal transition-colors">Housing Foreclosure</h3>
+              <p class="text-dark/60 text-sm leading-relaxed mb-6">A specialised team manages the complex process of housing foreclosure, ensuring the legal requirements are handled properly.</p>
+              <a href="service.html?service=housing-foreclosure" class="inline-flex items-center text-teal font-semibold hover:text-dark transition-colors group/link mt-auto">
+                Explore Service
+                <svg class="w-4 h-4 ml-1 transform group-hover/link:translate-x-1.5 transition-transform" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+              </a>
             </div>
           </div>
 
@@ -432,184 +424,217 @@
     </div>
   </section>
 
-  <!-- ===================== FEATURES / WHY CHOOSE US ===================== -->
-  <section id="features" class="bg-white py-20 lg:py-28">
+  <!-- Section Break -->
+  <div class="bg-slate-50 py-16 lg:py-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="fade-in">
-        <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          <!-- Text Side -->
-          <div>
-            <span class="text-teal text-sm font-semibold uppercase tracking-widest">Our Advantages</span>
-            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold mt-3 mb-6 text-dark">
-              Why <span class="text-gradient">Choose Us</span>
-            </h2>
-            <p class="text-dark/60 text-lg leading-relaxed mb-10">
-              We combine deep industry knowledge with modern technology to deliver solutions that give your business a competitive edge.
-            </p>
-
-            <div class="space-y-8">
-              <div class="flex gap-5 group">
-                <span class="text-4xl font-extrabold text-teal/20 leading-none group-hover:text-teal/40 transition-colors">01</span>
-                <div>
-                  <h3 class="text-lg font-bold text-dark mb-1">Automation &amp; Efficiency</h3>
-                  <p class="text-dark/60 text-sm leading-relaxed">Intelligent automation tools that eliminate manual processes and dramatically improve throughput.</p>
-                </div>
-              </div>
-
-              <div class="flex gap-5 group">
-                <span class="text-4xl font-extrabold text-teal/20 leading-none group-hover:text-teal/40 transition-colors">02</span>
-                <div>
-                  <h3 class="text-lg font-bold text-dark mb-1">Secure Systems</h3>
-                  <p class="text-dark/60 text-sm leading-relaxed">Enterprise-grade security protocols and compliance frameworks that protect sensitive financial data.</p>
-                </div>
-              </div>
-
-              <div class="flex gap-5 group">
-                <span class="text-4xl font-extrabold text-teal/20 leading-none group-hover:text-teal/40 transition-colors">03</span>
-                <div>
-                  <h3 class="text-lg font-bold text-dark mb-1">Scalable Solutions</h3>
-                  <p class="text-dark/60 text-sm leading-relaxed">Flexible architectures designed to grow alongside your business — from startup to enterprise scale.</p>
-                </div>
-              </div>
-
-              <div class="flex gap-5 group">
-                <span class="text-4xl font-extrabold text-teal/20 leading-none group-hover:text-teal/40 transition-colors">04</span>
-                <div>
-                  <h3 class="text-lg font-bold text-dark mb-1">Industry Expertise</h3>
-                  <p class="text-dark/60 text-sm leading-relaxed">A team of seasoned professionals with decades of combined experience in financial services and technology.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Image Side -->
-          <div class="relative">
-            <div class="rounded-2xl overflow-hidden shadow-2xl shadow-dark/10">
-              <img src="white-board.jpg" alt="Strategic planning and process mapping" class="w-full h-auto object-cover" />
-            </div>
-            <!-- Floating Stats Card -->
-            <div class="absolute -bottom-6 -left-6 bg-white rounded-2xl p-6 shadow-xl border border-lborder hidden sm:block">
-              <div class="flex items-center gap-4">
-                <div class="w-12 h-12 rounded-full bg-teal/10 flex items-center justify-center">
-                  <svg class="w-6 h-6 text-teal" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941"/>
-                  </svg>
-                </div>
-                <div>
-                  <div class="text-2xl font-extrabold text-dark">40%</div>
-                  <div class="text-xs text-dark/50">Avg. Cost Reduction</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <div class="h-px bg-black/10 w-full"></div>
     </div>
-  </section>
+  </div>
 
-  <!-- ===================== FAQ SECTION ===================== -->
-  <section id="faq" class="bg-lgray py-20 lg:py-28">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="fade-in">
-        <!-- Section Header -->
-        <div class="text-center mb-16">
-          <span class="text-teal text-sm font-semibold uppercase tracking-widest">Got Questions?</span>
-          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold mt-3 mb-6 text-dark">
-            Frequently Asked <span class="text-gradient">Questions</span>
+  <section id="features" class="bg-white py-32 lg:py-48 relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="flex flex-col lg:flex-row gap-16 lg:gap-24">
+        
+        <!-- Left Side: Header -->
+        <div class="lg:w-1/3" data-aos="fade-right">
+          <div class="w-12 h-1 bg-teal mb-8"></div>
+          <h2 class="text-5xl font-black text-dark tracking-tighter leading-tight mb-8">
+            Engineered<br/>Excellence.
           </h2>
-          <p class="text-dark/60 text-lg max-w-2xl mx-auto leading-relaxed">
-            Find answers to common questions about our debt recovery and financial services.
+          <p class="text-dark/60 text-lg leading-relaxed font-medium">
+            Our core architecture is built on four fundamental pillars of modern financial technology.
           </p>
         </div>
 
-        <!-- FAQ Accordion -->
-        <div class="space-y-4">
+        <!-- Right Side: Clean Cards -->
+        <div class="lg:w-2/3 space-y-6">
+          
+          <!-- Feature 01 -->
+          <div class="group bg-slate-50 p-10 rounded-2xl border border-black/5 border-l-4 border-l-teal shadow-[0_20px_60px_rgba(20,40,56,0.08)] hover:bg-white transition-all duration-500" data-aos="fade-up" data-aos-delay="0">
+            <div class="flex items-center gap-4 mb-4">
+              <span class="text-xs font-black bg-teal text-white px-3 py-1 rounded-sm uppercase tracking-widest">Efficiency</span>
+              <span class="text-teal font-black text-xl italic tracking-tighter">01</span>
+            </div>
+            <h3 class="text-2xl font-black text-dark mb-3">Automation & Efficiency</h3>
+            <p class="text-dark/70 leading-relaxed font-medium max-w-2xl">
+              Intelligent automation tools that eliminate manual processes and dramatically improve throughput.
+            </p>
+          </div>
+
+          <!-- Feature 02 -->
+          <div class="group bg-slate-50 p-10 rounded-2xl border border-black/5 border-l-4 border-l-teal shadow-[0_20px_60px_rgba(20,40,56,0.08)] hover:bg-white transition-all duration-500" data-aos="fade-up" data-aos-delay="80">
+            <div class="flex items-center gap-4 mb-4">
+              <span class="text-xs font-black bg-teal text-white px-3 py-1 rounded-sm uppercase tracking-widest">Security</span>
+              <span class="text-teal font-black text-xl italic tracking-tighter">02</span>
+            </div>
+            <h3 class="text-2xl font-black text-dark mb-3">Secure Systems</h3>
+            <p class="text-dark/70 leading-relaxed font-medium max-w-2xl">
+              Enterprise-grade security protocols and compliance frameworks that protect sensitive financial data.
+            </p>
+          </div>
+
+          <!-- Feature 03 -->
+          <div class="group bg-slate-50 p-10 rounded-2xl border border-black/5 border-l-4 border-l-teal shadow-[0_20px_60px_rgba(20,40,56,0.08)] hover:bg-white transition-all duration-500" data-aos="fade-up" data-aos-delay="160">
+            <div class="flex items-center gap-4 mb-4">
+              <span class="text-xs font-black bg-teal text-white px-3 py-1 rounded-sm uppercase tracking-widest">Scalability</span>
+              <span class="text-teal font-black text-xl italic tracking-tighter">03</span>
+            </div>
+            <h3 class="text-2xl font-black text-dark mb-3">Scalable Solutions</h3>
+            <p class="text-dark/70 leading-relaxed font-medium max-w-2xl">
+              Flexible architectures designed to grow alongside your business — from startup to enterprise scale.
+            </p>
+          </div>
+
+          <!-- Feature 04 -->
+          <div class="group bg-slate-50 p-10 rounded-2xl border border-black/5 border-l-4 border-l-teal shadow-[0_20px_60px_rgba(20,40,56,0.08)] hover:bg-white transition-all duration-500" data-aos="fade-up" data-aos-delay="240">
+            <div class="flex items-center gap-4 mb-4">
+              <span class="text-xs font-black bg-teal text-white px-3 py-1 rounded-sm uppercase tracking-widest">Expertise</span>
+              <span class="text-teal font-black text-xl italic tracking-tighter">04</span>
+            </div>
+            <h3 class="text-2xl font-black text-dark mb-3">Industry Expertise</h3>
+            <p class="text-dark/70 leading-relaxed font-medium max-w-2xl">
+              A team of seasoned professionals with decades of combined experience in financial services and technology.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section Break -->
+  <div class="bg-slate-50 py-16 lg:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="h-px bg-black/10 w-full"></div>
+    </div>
+  </div>
+
+  <!-- ===================== FAQ SECTION ===================== -->
+  <section id="faq" class="bg-white py-24 lg:py-32 relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid lg:grid-cols-12 gap-12 lg:gap-20 items-start fade-in">
+        
+        <!-- Left Side: Sticky Header -->
+        <div class="lg:col-span-4 lg:sticky lg:top-32">
+          <h2 class="text-4xl md:text-5xl font-black text-dark mb-6 leading-tight tracking-tight">
+            Frequently <br/>
+            Asked <br/>
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-teal to-[#2da8a2]">Questions.</span>
+          </h2>
+          <p class="text-dark/60 text-lg leading-relaxed mb-8">
+            Find answers to common questions about our corporate debt recovery and financial operations.
+          </p>
+          <a href="mailto:info@apollobsm.com" class="inline-flex items-center text-teal font-bold hover:text-dark transition-colors group/link text-lg">
+            Still have questions?
+            <svg class="w-5 h-5 ml-2 transform group-hover/link:translate-x-1.5 transition-transform" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+          </a>
+        </div>
+
+        <!-- Right Side: Clean Flat Accordion -->
+        <div class="lg:col-span-8 flex flex-col pt-4">
 
           <!-- FAQ 1 -->
-          <div class="faq-item bg-white rounded-2xl border border-lborder overflow-hidden">
-            <button class="faq-toggle w-full flex items-center justify-between p-6 text-left" aria-expanded="false">
-              <span class="text-lg font-semibold text-dark pr-4">What types of debts does Apollo collect?</span>
-              <svg class="faq-chevron w-5 h-5 text-teal shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+          <div class="faq-item border-b border-gray-200 hover:border-teal/50 transition-colors duration-300">
+            <button class="faq-toggle w-full flex items-start justify-between py-6 text-left group" aria-expanded="false">
+              <span class="text-xl font-bold text-dark group-hover:text-teal transition-colors pr-8 leading-snug">What types of debts does Apollo collect?</span>
+              <span class="relative flex items-center justify-center w-8 h-8 rounded-full bg-slate-50 group-hover:bg-teal/10 shrink-0 mt-1 transition-colors">
+                <svg class="faq-chevron w-5 h-5 text-teal shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+              </span>
             </button>
-            <div class="faq-content hidden px-6 pb-6">
-              <p class="text-dark/60 leading-relaxed">We handle a wide range of debt types including consumer loans, auto loans, credit card debts, mortgage-related debts, and commercial receivables. Our specialized teams are equipped to manage both secured and unsecured debt portfolios.</p>
+            <div class="faq-content hidden pb-8 pr-12">
+              <p class="text-dark/60 text-lg leading-relaxed">We handle a wide range of debt types including consumer loans, auto loans, credit card debts, mortgage-related debts, and commercial receivables. Our specialized teams are equipped to manage both secured and unsecured debt portfolios.</p>
             </div>
           </div>
 
           <!-- FAQ 2 -->
-          <div class="faq-item bg-white rounded-2xl border border-lborder overflow-hidden">
-            <button class="faq-toggle w-full flex items-center justify-between p-6 text-left" aria-expanded="false">
-              <span class="text-lg font-semibold text-dark pr-4">How does your field collection process work?</span>
-              <svg class="faq-chevron w-5 h-5 text-teal shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+          <div class="faq-item border-b border-gray-200 hover:border-teal/50 transition-colors duration-300">
+            <button class="faq-toggle w-full flex items-start justify-between py-6 text-left group" aria-expanded="false">
+              <span class="text-xl font-bold text-dark group-hover:text-teal transition-colors pr-8 leading-snug">How does your field collection process work?</span>
+              <span class="relative flex items-center justify-center w-8 h-8 rounded-full bg-slate-50 group-hover:bg-teal/10 shrink-0 mt-1 transition-colors">
+                <svg class="faq-chevron w-5 h-5 text-teal shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+              </span>
             </button>
-            <div class="faq-content hidden px-6 pb-6">
-              <p class="text-dark/60 leading-relaxed">Our trained field agents visit debtors in person to negotiate payment arrangements. Every visit follows strict compliance protocols, is fully documented, and is conducted professionally to maintain respectful debtor relations while maximizing the likelihood of recovery.</p>
+            <div class="faq-content hidden pb-8 pr-12">
+              <p class="text-dark/60 text-lg leading-relaxed">Our trained field agents visit debtors in person to negotiate payment arrangements. Every visit follows strict compliance protocols, is fully documented, and is conducted professionally to maintain respectful debtor relations while maximizing the likelihood of recovery.</p>
             </div>
           </div>
 
           <!-- FAQ 3 -->
-          <div class="faq-item bg-white rounded-2xl border border-lborder overflow-hidden">
-            <button class="faq-toggle w-full flex items-center justify-between p-6 text-left" aria-expanded="false">
-              <span class="text-lg font-semibold text-dark pr-4">Are your collection practices legally compliant?</span>
-              <svg class="faq-chevron w-5 h-5 text-teal shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+          <div class="faq-item border-b border-gray-200 hover:border-teal/50 transition-colors duration-300">
+            <button class="faq-toggle w-full flex items-start justify-between py-6 text-left group" aria-expanded="false">
+              <span class="text-xl font-bold text-dark group-hover:text-teal transition-colors pr-8 leading-snug">Are your collection practices legally compliant?</span>
+              <span class="relative flex items-center justify-center w-8 h-8 rounded-full bg-slate-50 group-hover:bg-teal/10 shrink-0 mt-1 transition-colors">
+                <svg class="faq-chevron w-5 h-5 text-teal shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+              </span>
             </button>
-            <div class="faq-content hidden px-6 pb-6">
-              <p class="text-dark/60 leading-relaxed">Absolutely. Compliance is at the core of everything we do. Our operations adhere to all applicable local and international regulations, including fair debt collection practices. Our legal team continuously monitors regulatory changes to ensure full compliance across all jurisdictions we operate in.</p>
+            <div class="faq-content hidden pb-8 pr-12">
+              <p class="text-dark/60 text-lg leading-relaxed">Absolutely. Compliance is at the core of everything we do. Our operations adhere to all applicable local and international regulations, including fair debt collection practices. Our legal team continuously monitors regulatory changes to ensure full compliance across all jurisdictions we operate in.</p>
             </div>
           </div>
 
           <!-- FAQ 4 -->
-          <div class="faq-item bg-white rounded-2xl border border-lborder overflow-hidden">
-            <button class="faq-toggle w-full flex items-center justify-between p-6 text-left" aria-expanded="false">
-              <span class="text-lg font-semibold text-dark pr-4">What regions do you provide services in?</span>
-              <svg class="faq-chevron w-5 h-5 text-teal shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+          <div class="faq-item border-b border-gray-200 hover:border-teal/50 transition-colors duration-300">
+            <button class="faq-toggle w-full flex items-start justify-between py-6 text-left group" aria-expanded="false">
+              <span class="text-xl font-bold text-dark group-hover:text-teal transition-colors pr-8 leading-snug">What regions do you provide services in?</span>
+              <span class="relative flex items-center justify-center w-8 h-8 rounded-full bg-slate-50 group-hover:bg-teal/10 shrink-0 mt-1 transition-colors">
+                <svg class="faq-chevron w-5 h-5 text-teal shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+              </span>
             </button>
-            <div class="faq-content hidden px-6 pb-6">
-              <p class="text-dark/60 leading-relaxed">Apollo operates across multiple regions including Manila (Philippines), Singapore, Dubai (UAE), Canada, and Europe. Our international presence allows us to serve clients with cross-border debt recovery needs while maintaining compliance with local regulations in each jurisdiction.</p>
+            <div class="faq-content hidden pb-8 pr-12">
+              <p class="text-dark/60 text-lg leading-relaxed">Apollo operates across multiple regions including Manila (Philippines), Singapore, Dubai (UAE), Canada, and Europe. Our international presence allows us to serve clients with cross-border debt recovery needs while maintaining compliance with local regulations in each jurisdiction.</p>
             </div>
           </div>
 
           <!-- FAQ 5 -->
-          <div class="faq-item bg-white rounded-2xl border border-lborder overflow-hidden">
-            <button class="faq-toggle w-full flex items-center justify-between p-6 text-left" aria-expanded="false">
-              <span class="text-lg font-semibold text-dark pr-4">When does Apollo pursue legal action for debt recovery?</span>
-              <svg class="faq-chevron w-5 h-5 text-teal shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+          <div class="faq-item border-b border-gray-200 hover:border-teal/50 transition-colors duration-300">
+            <button class="faq-toggle w-full flex items-start justify-between py-6 text-left group" aria-expanded="false">
+              <span class="text-xl font-bold text-dark group-hover:text-teal transition-colors pr-8 leading-snug">When does Apollo pursue legal action for debt recovery?</span>
+              <span class="relative flex items-center justify-center w-8 h-8 rounded-full bg-slate-50 group-hover:bg-teal/10 shrink-0 mt-1 transition-colors">
+                <svg class="faq-chevron w-5 h-5 text-teal shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+              </span>
             </button>
-            <div class="faq-content hidden px-6 pb-6">
-              <p class="text-dark/60 leading-relaxed">Legal action is typically pursued as a last resort after all other collection methods have been exhausted. Our legal collections team evaluates each case individually, considering the debt amount, debtor's situation, and cost-effectiveness before recommending litigation. We always keep our clients informed and involved in these decisions.</p>
+            <div class="faq-content hidden pb-8 pr-12">
+              <p class="text-dark/60 text-lg leading-relaxed">Legal action is typically pursued as a last resort after all other collection methods have been exhausted. Our legal collections team evaluates each case individually, considering the debt amount, debtor's situation, and cost-effectiveness before recommending litigation. We always keep our clients informed and involved in these decisions.</p>
             </div>
           </div>
 
           <!-- FAQ 6 -->
-          <div class="faq-item bg-white rounded-2xl border border-lborder overflow-hidden">
-            <button class="faq-toggle w-full flex items-center justify-between p-6 text-left" aria-expanded="false">
-              <span class="text-lg font-semibold text-dark pr-4">How does the vehicle repossession process work?</span>
-              <svg class="faq-chevron w-5 h-5 text-teal shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+          <div class="faq-item border-b border-gray-200 hover:border-teal/50 transition-colors duration-300">
+            <button class="faq-toggle w-full flex items-start justify-between py-6 text-left group" aria-expanded="false">
+              <span class="text-xl font-bold text-dark group-hover:text-teal transition-colors pr-8 leading-snug">How does the vehicle repossession process work?</span>
+              <span class="relative flex items-center justify-center w-8 h-8 rounded-full bg-slate-50 group-hover:bg-teal/10 shrink-0 mt-1 transition-colors">
+                <svg class="faq-chevron w-5 h-5 text-teal shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+              </span>
             </button>
-            <div class="faq-content hidden px-6 pb-6">
-              <p class="text-dark/60 leading-relaxed">Our vehicle repossession service follows a structured, lawful process. Once authorized by the client, our team locates the vehicle, verifies all legal documentation, and carries out the repossession in accordance with local laws. We handle all logistics including transportation, storage, and detailed reporting back to the client.</p>
+            <div class="faq-content hidden pb-8 pr-12">
+              <p class="text-dark/60 text-lg leading-relaxed">Our vehicle repossession service follows a structured, lawful process. Once authorized by the client, our team locates the vehicle, verifies all legal documentation, and carries out the repossession in accordance with local laws. We handle all logistics including transportation, storage, and detailed reporting back to the client.</p>
             </div>
           </div>
 
           <!-- FAQ 7 -->
-          <div class="faq-item bg-white rounded-2xl border border-lborder overflow-hidden">
-            <button class="faq-toggle w-full flex items-center justify-between p-6 text-left" aria-expanded="false">
-              <span class="text-lg font-semibold text-dark pr-4">What makes Apollo different from other collection agencies?</span>
-              <svg class="faq-chevron w-5 h-5 text-teal shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+          <div class="faq-item border-b border-gray-200 hover:border-teal/50 transition-colors duration-300">
+            <button class="faq-toggle w-full flex items-start justify-between py-6 text-left group" aria-expanded="false">
+              <span class="text-xl font-bold text-dark group-hover:text-teal transition-colors pr-8 leading-snug">What makes Apollo different from other collection agencies?</span>
+              <span class="relative flex items-center justify-center w-8 h-8 rounded-full bg-slate-50 group-hover:bg-teal/10 shrink-0 mt-1 transition-colors">
+                <svg class="faq-chevron w-5 h-5 text-teal shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+              </span>
             </button>
-            <div class="faq-content hidden px-6 pb-6">
-              <p class="text-dark/60 leading-relaxed">Apollo combines technology-driven solutions with deep industry expertise. We use modern collection systems with real-time tracking and intelligent automation, backed by experienced professionals across multiple service lines — from call and field collection to legal proceedings and asset recovery. Our global presence and compliance-first approach set us apart.</p>
+            <div class="faq-content hidden pb-8 pr-12">
+              <p class="text-dark/60 text-lg leading-relaxed">Apollo combines technology-driven solutions with deep industry expertise. We use modern collection systems with real-time tracking and intelligent automation, backed by experienced professionals across multiple service lines — from call and field collection to legal proceedings and asset recovery. Our global presence and compliance-first approach set us apart.</p>
             </div>
           </div>
 
           <!-- FAQ 8 -->
-          <div class="faq-item bg-white rounded-2xl border border-lborder overflow-hidden">
-            <button class="faq-toggle w-full flex items-center justify-between p-6 text-left" aria-expanded="false">
-              <span class="text-lg font-semibold text-dark pr-4">How can I get started with Apollo's services?</span>
-              <svg class="faq-chevron w-5 h-5 text-teal shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+          <div class="faq-item border-b-0">
+            <button class="faq-toggle w-full flex items-start justify-between py-6 text-left group" aria-expanded="false">
+              <span class="text-xl font-bold text-dark group-hover:text-teal transition-colors pr-8 leading-snug">How can I get started with Apollo's services?</span>
+              <span class="relative flex items-center justify-center w-8 h-8 rounded-full bg-slate-50 group-hover:bg-teal/10 shrink-0 mt-1 transition-colors">
+                <svg class="faq-chevron w-5 h-5 text-teal shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+              </span>
             </button>
-            <div class="faq-content hidden px-6 pb-6">
-              <p class="text-dark/60 leading-relaxed">Getting started is simple. Reach out to us through our contact form, email, or phone to schedule a consultation. We'll assess your needs, discuss the appropriate service lines, and create a tailored recovery strategy for your portfolio. Our team will guide you through the onboarding process every step of the way.</p>
+            <div class="faq-content hidden pb-8 pr-12">
+              <p class="text-dark/60 text-lg leading-relaxed">Getting started is simple. Reach out to us through our contact form, email, or phone to schedule a consultation. We'll assess your needs, discuss the appropriate service lines, and create a tailored recovery strategy for your portfolio. Our team will guide you through the onboarding process every step of the way.</p>
             </div>
           </div>
 
@@ -619,27 +644,33 @@
   </section>
 
   <!-- ===================== CALL TO ACTION SECTION ===================== -->
-  <section id="cta" class="cta-bg">
-    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
-      <div class="fade-in text-center max-w-3xl mx-auto">
-        <span class="text-teal-lighter text-sm font-semibold uppercase tracking-widest">Let's Work Together</span>
-        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold mt-4 mb-6 text-white">
-          Ready to Transform Your Financial Operations?
+  <section id="cta" class="bg-white py-24 sm:py-32 border-t border-black/5">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+      <div class="fade-in" data-aos="fade-up">
+        
+        <span class="block text-teal font-bold uppercase tracking-[0.25em] text-xs mb-6">Let's Work Together</span>
+        
+        <h2 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-dark mb-8 tracking-tight leading-[1.1]">
+          Ready to Transform Your <br class="hidden sm:block" />
+          <span class="text-dark font-black">Financial Operations?</span>
         </h2>
-        <p class="text-white/80 text-lg leading-relaxed mb-10">
-          Partner with Apollo Business Solutions to modernize your collection systems, optimize your financial services, and supercharge your loan marketing. Schedule a consultation today.
+        
+        <p class="text-dark/60 text-lg sm:text-xl leading-relaxed max-w-2xl mx-auto mb-14">
+          Partner with Apollo Business Solutions to modernize your collection systems, optimize your financial services, and supercharge your loan marketing.
         </p>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="mailto:info@apollobsm.com" class="inline-flex items-center justify-center px-8 py-4 bg-teal text-white font-semibold rounded-lg hover:bg-teal-light hover:shadow-lg hover:shadow-teal/20 transition-all duration-300">
-            Schedule a Consultation
-            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-10">
+          <a href="mailto:info@apollobsm.com" class="px-10 py-4 bg-teal text-white font-bold text-sm uppercase tracking-widest hover:bg-teal-light transition-colors w-full sm:w-auto rounded-sm shadow-[0_14px_40px_rgba(77,184,178,0.25)]">
+            Schedule Consultation
+          </a>
+          <a href="mailto:info@apollobsm.com" class="group flex items-center text-dark/70 hover:text-dark font-bold text-sm uppercase tracking-widest transition-colors w-full sm:w-auto justify-center">
+            <span class="border-b border-dark/20 pb-1 group-hover:border-dark transition-colors">Send Inquiry</span>
+            <svg class="w-4 h-4 ml-3 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
             </svg>
           </a>
-          <a href="mailto:info@apollobsm.com" class="inline-flex items-center justify-center px-8 py-4 border-2 border-white/30 text-white font-semibold rounded-lg hover:bg-white/10 hover:border-white transition-all duration-300">
-            Send an Inquiry
-          </a>
         </div>
+        
       </div>
     </div>
   </section>
@@ -647,9 +678,19 @@
   <!-- ===================== FOOTER ===================== -->
   <div id="footer-placeholder"></div>
 
-  <!-- ===================== SCRIPTS ===================== -->
-  <script src="./js/services-data.js"></script>
-  <script src="./js/components.js"></script>
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 650,
+      once: true,
+      offset: 120,
+      easing: 'ease-out-cubic',
+      delay: 0,
+      disable: () => window.matchMedia('(prefers-reduced-motion: reduce)').matches,
+    });
+  </script>
+  <script src="js/components.js"></script>
   <script>
     // Scroll-triggered fade-in animations
     const fadeElements = document.querySelectorAll('.fade-in');

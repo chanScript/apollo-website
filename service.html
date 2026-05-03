@@ -7,6 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -90,7 +91,7 @@
 
     <!-- Hero banner (title populated by JS) -->
     <section class="service-hero-bg pt-32 pb-16">
-      <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" data-aos="fade-in">
         <!-- Breadcrumb -->
         <nav class="flex items-center gap-2 mb-8 text-sm" aria-label="Breadcrumb">
           <a href="./index.html" class="text-white/50 hover:text-teal transition-colors">Home</a>
@@ -131,7 +132,7 @@
         </div>
 
         <!-- Service detail card (shown when service found) -->
-        <div id="service-card" class="hidden">
+        <div id="service-card" class="hidden" data-aos="fade-in" data-aos-delay="100">
           <!-- Card wrapper -->
           <div class="bg-white rounded-3xl border border-lborder shadow-xl shadow-dark/5 overflow-hidden">
             <div class="flex flex-col lg:flex-row">
@@ -197,6 +198,16 @@
   <div id="footer-placeholder"></div>
 
   <!-- Scripts -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 800,
+      once: true,
+      offset: 50,
+      easing: 'ease-in-out',
+      delay: 0,
+    });
+  </script>
   <script src="./js/services-data.js"></script>
   <script src="./js/components.js"></script>
   <script>
