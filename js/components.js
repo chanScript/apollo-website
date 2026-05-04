@@ -8,43 +8,72 @@
   /* ------------------------------------------------------------------ */
   /*  NAVBAR HTML                                                         */
   /* ------------------------------------------------------------------ */
-  var NAVBAR_HTML = '<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-lborder transition-all duration-300">' +
+  var NAVBAR_HTML = '<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-xl border-b border-lborder/50 transition-all duration-500">' +
     '<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">' +
-      '<div class="flex items-center justify-between h-20">' +
-        '<a href="./index.html#hero" class="flex items-center gap-3">' +
-          '<img src="./logo.jpg" alt="Apollo Logo" class="h-14 w-auto rounded-lg shadow-sm" />' +
-          '<div class="flex flex-col leading-tight">' +
-            '<span class="text-base font-extrabold tracking-tight text-dark">APOLLO</span>' +
-            '<span class="text-[11px] font-medium text-dark/50 tracking-wide uppercase">Business Solutions &amp; Management Inc.</span>' +
+      '<div class="flex items-center justify-between h-20 transition-all duration-500" id="navbar-container">' +
+        '<!-- Logo -->' +
+        '<a href="./index.html#hero" class="flex items-center gap-3 group">' +
+          '<div class="relative">' +
+            '<img src="./logo.jpg" alt="Apollo Logo" class="h-10 w-auto mix-blend-multiply transition-transform duration-500 group-hover:scale-105" />' +
+          '</div>' +
+          '<div class="flex flex-col leading-none border-l border-dark/10 pl-3 py-1">' +
+            '<span class="text-[16px] font-black tracking-[0.15em] text-dark uppercase mb-0.5">Apollo</span>' +
+            '<span class="text-[8px] font-bold text-dark/40 tracking-[0.2em] uppercase">Business Solutions</span>' +
           '</div>' +
         '</a>' +
-        '<div class="hidden lg:flex items-center gap-8">' +
-          '<a href="./index.html#hero" class="text-sm font-medium text-dark/70 hover:text-teal transition-colors">Home</a>' +
-          '<a href="./index.html#about" class="text-sm font-medium text-dark/70 hover:text-teal transition-colors">About</a>' +
-          '<a href="./index.html#services" class="text-sm font-medium text-dark/70 hover:text-teal transition-colors">Services</a>' +
-          '<a href="./index.html#features" class="text-sm font-medium text-dark/70 hover:text-teal transition-colors">Why Choose Us</a>' +
-          '<a href="./index.html#faq" class="text-sm font-medium text-dark/70 hover:text-teal transition-colors">FAQ</a>' +
-          '<a href="./index.html#cta" class="text-sm font-medium text-dark/70 hover:text-teal transition-colors">Contact</a>' +
-          '<a href="./index.html#cta" class="ml-4 inline-flex items-center px-6 py-2.5 bg-teal text-white text-sm font-semibold rounded-lg hover:bg-dark transition-colors">Get Started</a>' +
+
+        '<!-- Desktop Navigation -->' +
+        '<div class="hidden lg:flex items-center gap-10">' +
+          '<div class="flex items-center gap-8 mr-4">' +
+            '<a href="./index.html#hero" class="nav-link text-[11px] font-bold uppercase tracking-[0.2em] text-dark/40 hover:text-dark transition-all duration-300">Home</a>' +
+            '<a href="./index.html#about" class="nav-link text-[11px] font-bold uppercase tracking-[0.2em] text-dark/40 hover:text-dark transition-all duration-300">About</a>' +
+            '<a href="./index.html#services" class="nav-link text-[11px] font-bold uppercase tracking-[0.2em] text-dark/40 hover:text-dark transition-all duration-300">Services</a>' +
+            '<a href="./index.html#features" class="nav-link text-[11px] font-bold uppercase tracking-[0.2em] text-dark/40 hover:text-dark transition-all duration-300">Why Us</a>' +
+            '<a href="./index.html#faq" class="nav-link text-[11px] font-bold uppercase tracking-[0.2em] text-dark/40 hover:text-dark transition-all duration-300">FAQ</a>' +
+            '<a href="./index.html#cta" class="nav-link text-[11px] font-bold uppercase tracking-[0.2em] text-dark/40 hover:text-dark transition-all duration-300">Contact</a>' +
+          '</div>' +
+          '<a href="./index.html#cta" class="inline-flex items-center px-7 py-2.5 bg-dark text-white text-[10px] font-bold uppercase tracking-[0.25em] rounded-full hover:bg-teal hover:shadow-lg hover:shadow-teal/20 transition-all duration-300 active:scale-95">' +
+            'Get Started' +
+          '</a>' +
         '</div>' +
-        '<button id="menu-toggle" class="lg:hidden p-2 text-dark/70 hover:text-teal transition-colors" aria-label="Toggle menu">' +
-          '<svg id="menu-open-icon" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>' +
-          '<svg id="menu-close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>' +
+
+        '<!-- Mobile Hamburger -->' +
+        '<button id="menu-toggle" class="lg:hidden p-2 text-dark/70 hover:text-teal transition-colors rounded-lg hover:bg-teal/5" aria-label="Toggle menu">' +
+          '<svg id="menu-open-icon" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">' +
+            '<path stroke-linecap="round" stroke-linejoin="round" d="M3.75 9h16.5m-16.5 6.75h16.5"/>' +
+          '</svg>' +
+          '<svg id="menu-close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">' +
+            '<path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>' +
+          '</svg>' +
         '</button>' +
       '</div>' +
     '</div>' +
-    '<div id="mobile-menu" class="lg:hidden hidden bg-white border-t border-lborder">' +
-      '<div class="px-4 py-6 space-y-4">' +
-        '<a href="./index.html#hero" class="block text-sm font-medium text-dark/70 hover:text-teal transition-colors">Home</a>' +
-        '<a href="./index.html#about" class="block text-sm font-medium text-dark/70 hover:text-teal transition-colors">About</a>' +
-        '<a href="./index.html#services" class="block text-sm font-medium text-dark/70 hover:text-teal transition-colors">Services</a>' +
-        '<a href="./index.html#features" class="block text-sm font-medium text-dark/70 hover:text-teal transition-colors">Why Choose Us</a>' +
-        '<a href="./index.html#faq" class="block text-sm font-medium text-dark/70 hover:text-teal transition-colors">FAQ</a>' +
-        '<a href="./index.html#cta" class="block text-sm font-medium text-dark/70 hover:text-teal transition-colors">Contact</a>' +
-        '<a href="./index.html#cta" class="inline-flex items-center px-6 py-2.5 bg-teal text-white text-sm font-semibold rounded-lg hover:bg-dark transition-colors">Get Started</a>' +
+
+    '<!-- Mobile Menu -->' +
+    '<div id="mobile-menu" class="lg:hidden hidden bg-white/98 backdrop-blur-xl border-t border-lborder/50">' +
+      '<div class="px-6 py-8 space-y-6">' +
+        '<div class="flex flex-col gap-4">' +
+          '<a href="./index.html#hero" class="text-xs font-bold uppercase tracking-[0.2em] text-dark/60 hover:text-teal transition-colors">Home</a>' +
+          '<a href="./index.html#about" class="text-xs font-bold uppercase tracking-[0.2em] text-dark/60 hover:text-teal transition-colors">About</a>' +
+          '<a href="./index.html#services" class="text-xs font-bold uppercase tracking-[0.2em] text-dark/60 hover:text-teal transition-colors">Services</a>' +
+          '<a href="./index.html#features" class="text-xs font-bold uppercase tracking-[0.2em] text-dark/60 hover:text-teal transition-colors">Why Choose Us</a>' +
+          '<a href="./index.html#faq" class="text-xs font-bold uppercase tracking-[0.2em] text-dark/60 hover:text-teal transition-colors">FAQ</a>' +
+          '<a href="./index.html#cta" class="text-xs font-bold uppercase tracking-[0.2em] text-dark/60 hover:text-teal transition-colors">Contact</a>' +
+        '</div>' +
+        '<a href="./index.html#cta" class="inline-flex items-center justify-center w-full px-6 py-3.5 bg-dark text-white text-[10px] font-bold uppercase tracking-[0.25em] rounded-full hover:bg-teal transition-colors">' +
+          'Get Started' +
+        '</a>' +
       '</div>' +
     '</div>' +
-  '</nav>';
+  '</nav>' +
+  '<style>' +
+    '.nav-link { position: relative; padding: 0.5rem 0; }' +
+    '.nav-link::after { content: \'\'; position: absolute; bottom: 0; left: 0; width: 0; height: 1.5px; background-color: #142838; transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1); }' +
+    '.nav-link:hover::after, .nav-link.nav-active::after { width: 100%; }' +
+    '.nav-active { color: #142838 !important; opacity: 1 !important; }' +
+    '.navbar-scrolled { background-color: rgba(255, 255, 255, 0.95) !important; backdrop-filter: blur(20px); border-bottom: 1px solid rgba(226, 232, 240, 0.8); }' +
+    '.navbar-scrolled #navbar-container { height: 4rem; }' +
+  '</style>';
 
   /* ------------------------------------------------------------------ */
   /*  FOOTER HTML                                                         */
@@ -147,9 +176,9 @@
     if (navbar) {
       window.addEventListener('scroll', function () {
         if (window.scrollY > 50) {
-          navbar.classList.add('shadow-lg', 'shadow-dark/10');
+          navbar.classList.add('navbar-scrolled', 'shadow-lg', 'shadow-dark/5');
         } else {
-          navbar.classList.remove('shadow-lg', 'shadow-dark/10');
+          navbar.classList.remove('navbar-scrolled', 'shadow-lg', 'shadow-dark/5');
         }
       });
     }
